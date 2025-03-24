@@ -1,0 +1,109 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+  }
+   .background {
+    opacity: 0.5;
+    width: 1005px;
+    margin-top: 20px;
+  }
+.body{
+  background-color: #818C78 ;
+}
+  .text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 100px;
+    font-family:"Orbitron", sans-serif;
+    font-weight: bold;
+    padding: 10px 30px;
+  }
+  .text-overlay1 {
+    position: absolute;
+    bottom: 15px;;
+    left: 120px;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 20px;
+    font-family: "Audiowide", sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;}
+div.polaroid {
+    width: 80%;
+    size: 30px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   }
+      
+   img {width: 100%}
+      
+  div.container {
+    text-align: center;
+    padding: 10px 20px;
+ }
+ div.card{
+    width: 50px;  /* Gjerësia fikse për të gjitha */
+    height: 200px; /* Lartësia fikse për të gjitha */
+    padding: 10px;
+    margin: 20px;
+    background-color:#E2E0C8;
+  }
+  .star{
+    font-size: 1.8rem;
+    background-color:unset;
+    border: none;
+    position: relative;
+    bottom: 40px;
+    left: 100px;
+    cursor: pointer;
+    color: #ffb909;
+    transition: color 0.3s;
+  }
+
+  .card-body{
+    text-align: left;
+    
+  }
+  .card-title{
+    font-size: 12px;
+
+  }
+  .quotes{
+    background-color: #E2E0C8;
+
+  }
+  div.circle{
+  height: 800px;
+  width: 500px;
+  border-radius: 50%;
+  right:900px ;
+  border-radius: 450px 0px 0px 450px;
+  }
+  .carousel {
+    position: relative;
+    width: 180px;
+    height: 180px;
+  }
+
+  .carousel img {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel img.active {
+    transform: scale(1.5);
+    z-index: 10;
+  
+}
+.workout{
+ position: absolute;
+align-items: center;
+
+}
