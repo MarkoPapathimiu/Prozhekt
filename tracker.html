@@ -11,11 +11,11 @@
     <body>
         <!-- NavBar section -->
         <nav
-        class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top"
-        aria-label="Eleventh navbar example"
-    >
+            class="navbar navbar-expand-lg bg-dark navbar-dark"
+            aria-label="Eleventh navbar example"
+        >
         <div class="container-fluid">
-    <button
+        <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse "
@@ -192,21 +192,69 @@
         </div>
         </div>
     </div>
-        <h3 class="mt-5">Your Profile</h3>
-        <form>
-            <input type="text">
-                    <div class="d-flex">
-                        <div>
-                            <h5 class="mb-1">Name: <span id="user-name"></span></h5>
-                            <p class="mb-1"><strong>Age:</strong><span id="user-age"></span></p>
-                            <p class="mb-1"><strong>Height:</strong><span id="user-height"></span></p>
-                            <p class="mb-1"><strong>Weight:</strong><span id="user-weight"></span></p>
-                            <p class="mb-1"><strong>BMI:</strong><span id="user-bmi"></span></p>
-                            <button class="btn btn-warning btn-sm" >Update</button> <!--- Shfaqet nje popup si kur ben sign-up po kte rradh thjesht i ben update te dhenat -->
-                            <button class="btn btn-danger btn-sm" >Delete</button> <!-- Shfaqet nje alarm message qe te kerkon te konfirmosh nese do e fshish accountin ose jo-->
-                        </div>
+
+    <!-- Main Elements -->
+    <div class="container-fluid p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>My Profile</h2>
+            <div class="d-flex align-items-center">
+                <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Profile">
+                <span>Hello Sami <i class="fas fa-chevron-down"></i></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card p-4 border-0 shadow-sm">
+                    <div class="text-center">
+                        <img src="" class="rounded-circle mb-3" alt="Profile">
+                        <h5 class="mb-1">Name: <span id="user-name"></span></h5>
+                        <p class="mb-1"><strong>Age:</strong><span id="user-age"></span></p>
+                        <p class="mb-1"><strong>Height:</strong><span id="user-height"></span></p>
+                        <p class="mb-1"><strong>Weight:</strong><span id="user-weight"></span></p>
+                        <p class="mb-1"><strong>BMI:</strong><span id="user-bmi"></span></p>
+                        <button class="btn btn-warning btn-sm" >Update</button> <!--- Shfaqet nje popup si kur ben sign-up po kte rradh thjesht i ben update te dhenat -->
+                        <button class="btn btn-danger btn-sm" >Delete</button> <!-- Shfaqet nje alarm message qe te kerkon te konfirmosh nese do e fshish accountin ose jo-->
                     </div>
-        </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4 border-0 shadow-sm mb-3">
+                    <h5>My xPay accounts</h5>
+                    <p>Active account: 8496 5689 6525 4525</p>
+                    <button class="btn btn-danger btn-sm">Block Account</button>
+                    <p class="mt-2">Blocked account:</p>
+                    <button class="btn btn-success btn-sm">Unblock Account</button>
+                </div>
+                <div class="card p-4 border-0 shadow-sm">
+                    <h5>My bills</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Phone bill <span class="badge bg-success">Bill paid</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Internet bill <span class="badge bg-danger">Not paid</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">House rent <span class="badge bg-success">Bill paid</span></li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">Income tax <span class="badge bg-success">Bill paid</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="container-fluid  mt-5">
+        <div class="card" style="width:400px">
+            <div class="d-flex card-body">
+                <div class="card-text">
+                    <h5 class="mb-1">Name: <span id="user-name"></span></h5>
+                    <p class="mb-1"><strong>Age:</strong><span id="user-age"></span></p>
+                    <p class="mb-1"><strong>Height:</strong><span id="user-height"></span></p>
+                    <p class="mb-1"><strong>Weight:</strong><span id="user-weight"></span></p>
+                    <p class="mb-1"><strong>BMI:</strong><span id="user-bmi"></span></p>
+                    <button class="btn btn-warning btn-sm" >Update</button> <!--- Shfaqet nje popup si kur ben sign-up po kte rradh thjesht i ben update te dhenat -->
+                    <button class="btn btn-danger btn-sm" >Delete</button> <!-- Shfaqet nje alarm message qe te kerkon te konfirmosh nese do e fshish accountin ose jo-->
+                </div>
+            </div>
+        </div>
+    <div></div>
+    <div></div>
+    </div>
 
         <script src="/scripts/jquery-3.7.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
