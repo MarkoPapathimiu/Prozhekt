@@ -1,0 +1,185 @@
+<nav
+  class="navbar navbar-expand-lg bg-dark navbar-dark"
+  aria-label="Eleventh navbar example"
+>
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse "
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="homePage.html"
+            >Home Page</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="workout.html">Workout Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-disabled="true" href="nutrition.html"
+            >Nutrition Page</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="tracker.html"
+            >Progress Tracking Page</a
+          >
+        </li>
+      </ul>
+      <div class="ms-auto">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#modalLogIn"
+              >Log In</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#modalSignIn"
+              >Sign Up</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal Log In -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modalLogIn">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Log In</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="" id="logInForm">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control rounded-3"
+              id="usernameInputLogIn"
+              placeholder="User Name"
+            />
+            <label for="floatingInput">User Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control rounded-3"
+              id="passwordInputLogIn"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button
+            class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+            type="submit"
+          >
+            Log In
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sign Up -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modalSignIn">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Sign up</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="" id="signUpForm">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control rounded-3"
+              id="usernameInput"
+              placeholder="User Name"
+            />
+            <label for="floatingInput">User Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control rounded-3"
+              id="passwordInput"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control rounded-3"
+              id="ageInput"
+              placeholder="Age"
+              min="1"
+              max="99"
+            />
+            <label for="floatingInput">Age</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control rounded-3"
+              id="heightInput"
+              placeholder="Height"
+              min="100"
+            />
+            <label for="floatingInput">Height</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control rounded-3"
+              id="weightInput"
+              placeholder="Weight"
+            />
+            <label for="floatingInput">Weight</label>
+          </div>
+          <button
+            class="w-100 mb-2 btn btn-lg rounded-3 btn-primary"
+            type="submit"
+          >
+            Sign up
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
