@@ -10,7 +10,7 @@
 // const $activityLevel;
 
 const $workoutsList = $("#workoutsList");
-const $recipesList = $("recipesList");
+const $recipesList = $("#recipesList");
 
 function getUsers() {
   return JSON.parse(localStorage.getItem("users")) || [];

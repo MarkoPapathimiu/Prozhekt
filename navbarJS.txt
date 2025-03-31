@@ -1,0 +1,68 @@
+function loadNavbar() {
+  fetch("navbar.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("navbar").innerHTML = data;
+      initializeForms(); // Ensure event listeners are added AFTER navbar loads
+    })
+    .catch((error) => console.error("Error loading navbar:", error));
+}
+
+function initializeForms() {
+  const signUpForm = document.getElementById("signUpForm");
+  const loginForm = document.getElementById("logInForm");
+
+  if (signUpForm) {
+    signUpForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const newUser = {
+        username: document.getElementById("usernameInput").value,
+        password: document.getElementById("passwordInput").value,
+        age: document.getElementById("ageInput").value,
+        height: document.getElementById("heightInput").value,
+        weight: document.getElementById("weightInput").value,
+      };
+
+      if (users.some((user) => user.username === newUser.username)) {
+        alert("Username already exists! Choose another.");
+        return;
+      }
+
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("Registration successful!");
+      signUpForm.reset();
+    });
+  } else {
+    console.error("Sign Up Form not found after navbar loaded.");
+  }
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const enteredUsername =
+        document.getElementById("usernameInputLogIn").value;
+      const enteredPassword =
+        document.getElementById("passwordInputLogIn").value;
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = users.find(
+        (user) =>
+          user.username === enteredUsername && user.password === enteredPassword
+      );
+
+      if (user) {
+        alert(`Welcome, ${user.username}!`);
+      } else {
+        alert("Invalid login credentials.");
+      }
+    });
+  } else {
+    console.error("Login Form not found after navbar loaded.");
+  }
+}
+
+// Load navbar and initialize forms AFTER it's inserted
+window.onload = loadNavbar;
