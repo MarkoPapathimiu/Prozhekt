@@ -1,0 +1,7 @@
+.scroll-list {
+  max-height: 250px; /* fixed height */
+  overflow-y: auto; /* vertical scrolling */
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f8f9fa;
+}
