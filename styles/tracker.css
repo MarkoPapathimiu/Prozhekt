@@ -1,7 +1,27 @@
+body {
+  background-color: #f4f4f4;
+}
+
 .scroll-list {
   max-height: 250px; /* fixed height */
   overflow-y: auto; /* vertical scrolling */
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #f8f9fa;
+}
+
+.notBold {
+  font-size: initial;
+  font-weight: normal;
+  color: inherit;
+}
+
+#updateBtn {
+  background-color: #4682b4;
+  color: #f4f4f4;
+}
+
+#deleteBtn {
+  background-color: #2c2454;
+  color: #f4f4f4;
 }

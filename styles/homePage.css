@@ -1,3 +1,7 @@
+body {
+  background-color: #c3c3c3;
+}
+
 .gradient-background {
   background: linear-gradient(300deg, #4682b4, #3a306b, #2c2454);
   background-size: 180% 180%;
@@ -26,8 +30,4 @@
 
 .navbar-toggler {
   margin-left: auto; /* This pushes the toggler to the right */
-}
-
-body {
-  background-color: #c3c3c3;
 }

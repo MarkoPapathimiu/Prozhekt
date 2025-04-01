@@ -1,0 +1,5 @@
+bootstrap progress bar -> tracker page
+https://www.w3schools.com/bootstrap5/bootstrap_progressbars.php
+
+marrim favorites dhe i pjestojme per totalin (workouts ose recipes) dhe e shumezojme me 100, 
+ne menyre qe te dali % per ta perdorur ne progress bar i bootstrapit.

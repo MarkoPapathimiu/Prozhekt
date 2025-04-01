@@ -18,36 +18,43 @@
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>My Progress</h2>
         <div class="d-flex align-items-center">
-          <!-- Nuk e di nese do kemi foto profili po ky eshte kodi nqs do kemi -->
-          <!-- <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Profile"> -->
-          <span id="helloUser">Hello</span>
-          <!-- supozohet te jete Hello <userName> (duhet pare si behet me js)-->
+          <h5 id="helloUser">Hello</h5>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
           <div class="card p-4 border-0 shadow-sm">
             <div class="text-center">
-              <img src="" class="rounded-circle mb-3" alt="Profile" />
-              <h5 class="mb-1">
-                Name:
+              <h2 class="mb-1">
                 <span id="user-name"></span>
-              </h5>
-              <p class="mb-1">
-                <strong>Age:</strong><span id="user-age"></span>
-              </p>
-              <p class="mb-1">
-                <strong>Height:</strong><span id="user-height"></span>
-              </p>
-              <p class="mb-1">
-                <strong>Weight:</strong><span id="user-weight"></span>
-              </p>
-              <p class="mb-1">
-                <strong>BMI:</strong><span id="user-bmi"></span>
-              </p>
-              <button class="btn btn-warning btn-sm">Update</button>
+              </h2>
+              <h4 class="mb-1">Age <span id="user-age"></span></h4>
+              <div class="row mt-4 mb-4">
+                <div class="col-lg mb-1">
+                  <h3>
+                    <span id="user-height"></span
+                    ><span class="notBold">cm</span>
+                  </h3>
+                  <p>Height</p>
+                </div>
+                <div class="col-lg mb-1">
+                  <h3>
+                    <span id="user-weight"></span
+                    ><span class="notBold">kg</span>
+                  </h3>
+                  <p>Weight</p>
+                </div>
+                <div class="col-lg mb-1">
+                  <h3>
+                    <span id="user-bmi"></span>
+                  </h3>
+                  <p>BMI</p>
+                </div>
+              </div>
+
+              <button class="btn btn-md mx-2" id="updateBtn">Update</button>
               <!--- Shfaqet nje popup si kur ben sign-up po kte rradh thjesht i ben update te dhenat -->
-              <button class="btn btn-danger btn-sm">Delete</button>
+              <button class="btn btn-md" id="deleteBtn">Delete</button>
               <!-- Shfaqet nje alarm message qe te kerkon te konfirmosh nese do e fshish accountin ose jo-->
             </div>
           </div>
