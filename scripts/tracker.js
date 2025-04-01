@@ -1,14 +1,3 @@
-// const $userID;
-// const $userName;
-// const $password;
-// const $userAge;
-// const $userHeight;
-// const $userWeight;
-// const $userBMI;
-// const $favoriteWorkouts;
-// const $favoriteRecipes;
-// const $activityLevel;
-
 const $workoutsList = $("#workoutsList");
 const $recipesList = $("#recipesList");
 
@@ -24,15 +13,75 @@ function getRecipes() {
   return JSON.parse(localStorage.getItem("recipes")) || [];
 }
 
-function userProfile() {
-  var user = getUsers();
-
-  $("#user-name").text(user.userName);
-  $("#user-age").text(user.userAge);
-  $("#user-height").text(user.userHeight);
-  $("#user-weight").text(user.userWeight);
-  $("#user-bmi").text(user.userBMI);
+function getCurrentUser() {
+  return localStorage.getItem("currentUser");
 }
+
+function saveCurrentUser(current) {
+  localStorage.setItem("currentUserData", JSON.stringify(current));
+}
+
+// To calculate BMI for updated data
+// function calculateBmi(weight, height) {
+//   height = height / 100;
+//   const bmi = weight / Math.pow(height, 2);
+//   return bmi.toFixed(2);
+// }
+
+// To delete user
+// function deleteUser(userID) {
+//   let projects = getProjects();
+//   projects = projects.filter((project) => project.id !== projectID);
+//   saveProject(projects);
+//   renderProjects();
+// }
+
+function userProfile() {
+  const users = getUsers();
+  const currentUserID = getCurrentUser();
+
+  console.log(
+    "Current User ID:",
+    currentUserID,
+    "Type: ",
+    typeof currentUserID
+  ); // Debugging: Log the current user ID
+
+  if (!currentUserID) {
+    console.error("No current user ID found.");
+    return; // Stop function execution if no current user ID is found
+  }
+
+  const currentUser = users.find((user) => user.userID === currentUserID);
+
+  console.log("Found Current User:", currentUser); // Debugging: Log the found user
+
+  if (!currentUser) {
+    console.error("User not found.");
+    return; // Exit the function if no user matches the current ID
+  }
+
+  // Now save the currentUser object to localStorage
+  localStorage.setItem("currentUserData", JSON.stringify(currentUser));
+
+  console.log("This is the current user:", currentUser);
+
+  // Update the DOM elements with user data
+  document.getElementById("user-name").textContent = currentUser.username;
+  document.getElementById("user-age").textContent = currentUser.age;
+  document.getElementById("user-height").textContent = currentUser.height;
+  document.getElementById("user-weight").textContent = currentUser.weight;
+  document.getElementById("user-bmi").textContent = currentUser.bmi;
+
+  // Update the greeting message
+  const helloUser = document.getElementById("helloUser");
+  if (helloUser) {
+    helloUser.textContent = `Hello, ${currentUser.username}!`;
+  }
+}
+$(document).ready(function () {
+  userProfile();
+});
 
 function favWorkouts() {
   $workoutsList.html("");
@@ -55,6 +104,5 @@ function favWorkouts() {
   });
 }
 $(document).ready(function () {
-  userProfile();
   favWorkouts();
 });

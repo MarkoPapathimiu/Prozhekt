@@ -1,110 +1,61 @@
 function loadNavbar() {
   fetch("navbar.html")
     .then((response) => response.text())
-    .then((data) => (document.getElementById("navbar").innerHTML = data));
-}
-window.onload = loadNavbar;
-
-const form = document.getElementById("signUpForm");
-const userName = document.getElementById("usernameInput");
-const password = document.getElementById("passwordInput");
-const userAge = document.getElementById("ageInput");
-const userHeight = document.getElementById("heightInput");
-const userWeight = document.getElementById("weightInput");
-
-const userNameLogIn = document.getElementById("usernameInputLogIn");
-const passwordLogIn = document.getElementById("passwordInputLogIn");
-
-// function to get User Name from localStorage
-function getUserName() {
-  return JSON.parse(localStorage.getItem("userName")) || [];
+    .then((data) => {
+      document.getElementById("navbar").innerHTML = data;
+      initializeForms(); // Ensure event listeners are added AFTER navbar loads
+    })
+    .catch((error) => console.error("Error loading navbar:", error));
 }
 
-// function to get password from localStorage
-function getPassword() {
-  return JSON.parse(localStorage.getItem("password")) || [];
-}
-
-// function to get age from localStorage
-function getAge() {
-  return JSON.parse(localStorage.getItem("userAge")) || [];
-}
-
-// function to get height from localStorage
-function getHeight() {
-  return JSON.parse(localStorage.getItem("userHeight")) || [];
-}
-
-// function to get weight from localStorage
-function getWeight() {
-  return JSON.parse(localStorage.getItem("userWeight")) || [];
-}
-
-//function to get User Name LogIn from localStorage
-function getUserNameLogIn() {
-  return JSON.parse(localStorage.getItem("userNameLogIn")) || [];
-}
-
-// function to get passwordLogIn from localStorage
-function getPasswordLogIn() {
-  return JSON.parse(localStorage.getItem("passwordLogIn")) || [];
-}
-
-// function to save User Name to localStorage
-function saveUserName(userName) {
-  localStorage.setItem("userName", JSON.stringify(userName));
-}
-
-// function to save password to localStorage
-function savePassword(password) {
-  localStorage.setItem("password", JSON.stringify(password));
-}
-
-// function to save age to localStorage
-function saveAge(userAge) {
-  localStorage.setItem("userAge", JSON.stringify(userAge));
-}
-
-// function to save height to localStorage
-function saveHeight(userHeight) {
-  localStorage.setItem("userHeight", JSON.stringify(userHeight));
-}
-
-// function to save weight to localStorage
-function saveWeight(userWeight) {
-  localStorage.setItem("userWeight", JSON.stringify(userWeight));
-}
-
-// function to save User Name LogIn to localStorage
-function saveUserNameLogIn(userNameLogIn) {
-  localStorage.setItem("userNameLogIn", JSON.stringify(userNameLogIn));
-}
-
-// function to save passwordLogIn to localStorage
-function savePasswordLogIn(passwordLogIn) {
-  localStorage.setItem("passwordLogIn", JSON.stringify(passwordLogIn));
-}
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+function initializeForms() {
   const signUpForm = document.getElementById("signUpForm");
   const loginForm = document.getElementById("logInForm");
 
-  // Sign up functionality
+  // Collect inputs for sign up
+  const userName = document.getElementById("usernameInput");
+  const password = document.getElementById("passwordInput");
+  const userAge = document.getElementById("ageInput");
+  const userHeight = document.getElementById("heightInput");
+  const userWeight = document.getElementById("weightInput");
+
+  // Function to generate random ID
+  function generateId() {
+    return "_" + Math.random().toString(36).substr(2, 9);
+  }
+
+  // Function to get users from localStorage
+  function getUsers() {
+    return JSON.parse(localStorage.getItem("users")) || [];
+  }
+
+  function calculateBmi(weight, height) {
+    height = height / 100;
+    const bmi = weight / Math.pow(height, 2);
+    return bmi.toFixed(2);
+  }
+
+  // Function to save user to localStorage
+  function saveUser(users) {
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+
+  // Sign up event listener
   if (signUpForm) {
     signUpForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const users = getUsers();
       const newUser = {
-        username: document.getElementById("usernameInput").value,
-        password: document.getElementById("passwordInput").value,
-        age: document.getElementById("ageInput").value,
-        height: document.getElementById("heightInput").value,
-        weight: document.getElementById("weightInput").value,
+        userID: generateId(),
+        username: userName.value,
+        password: password.value,
+        age: userAge.value,
+        height: userHeight.value,
+        weight: userWeight.value,
+        bmi: calculateBmi(userWeight.value, userHeight.value),
+        favWorkouts: [],
+        favRecipes: [],
       };
 
       const exists = users.some((user) => user.username === newUser.username);
@@ -114,17 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       users.push(newUser);
-      localStorage.setItem("users", JSON.stringify(users));
+      saveUser(users);
       alert("User registered successfully!");
       signUpForm.reset();
     });
   } else {
-    console.error(
-      "Sign Up Form not found. Check your form ID and ensure the DOM is fully loaded."
-    );
+    console.error("Sign Up Form not found.");
   }
 
-  // Login functionality
+  // Login event listener
   if (loginForm) {
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -133,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const enteredPassword =
         document.getElementById("passwordInputLogIn").value;
 
-      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const users = getUsers();
       const user = users.find(
         (user) =>
           user.username === enteredUserName && user.password === enteredPassword
@@ -142,14 +91,17 @@ document.addEventListener("DOMContentLoaded", function () {
       if (user) {
         console.log("Login successful:", enteredUserName);
         alert("You are now logged in!");
+        // Save the current user's ID to localStorage
+        localStorage.setItem("currentUser", user.userID);
       } else {
         console.log("Login failed for user:", enteredUserName);
         alert("Invalid username or password.");
       }
+      window.location.reload();
     });
   } else {
-    console.error(
-      "Login Form not found. Check your form ID and ensure the DOM is fully loaded."
-    );
+    console.error("Login Form not found.");
   }
-});
+}
+
+window.onload = loadNavbar;
