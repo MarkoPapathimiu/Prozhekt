@@ -29,6 +29,7 @@ function initializeForms() {
     return JSON.parse(localStorage.getItem("users")) || [];
   }
 
+  //function to calculate BMI
   function calculateBmi(weight, height) {
     height = height / 100;
     const bmi = weight / Math.pow(height, 2);
