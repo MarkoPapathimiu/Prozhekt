@@ -5,6 +5,11 @@ marrim favorites dhe i pjestojme per totalin (workouts ose recipes) dhe e shumez
 ne menyre qe te dali % per ta perdorur ne progress bar i bootstrapit.
 
 
+duhet nje buton sign out dhe nje version i faqes trackerpage qe te kerkon te besh login ose signup
+
+
+duhet rregulluar navbar toggler per responsive behaviour.
+
 
 ide per fav workouts dhe fav recipes te tracker page
     <ul class="nav nav-tabs mt-4" id="profileTabs" role="tablist">

@@ -54,8 +54,9 @@ function userProfile() {
 
   const currentUser = users.find((user) => user.userID === currentUserID);
 
-  console.log("Found Current User:", currentUser); // Debugging: Log the found user
-
+  if (currentUser) {
+    console.log("Found Current User:", currentUser); // Debugging: Log the found user
+  }
   if (!currentUser) {
     console.error("User not found.");
     return; // Exit the function if no user matches the current ID
@@ -83,6 +84,7 @@ $(document).ready(function () {
   userProfile();
 });
 
+// Favorite Workouts Section
 function favWorkouts() {
   $workoutsList.html("");
 
@@ -103,6 +105,28 @@ function favWorkouts() {
     $workoutsList.append($workoutListItem);
   });
 }
+// Favorite Recipes Section
+function favRecipes() {
+  $recipesList.html("");
+
+  var list = ["uno", "due", "tre", "quatro", "cinco", "sexta"]; //temporary list for testing
+
+  //printing out recipes list items
+  list.forEach((item) => {
+    const $recipeListItem = $("<li></li>");
+    $recipeListItem.addClass("list-group-item mb-2");
+    $recipeListItem.html(`
+            <div class="d-flex">
+                <div>
+                    <h5 class="mb-1">${item}</h5>
+                    <p class="mb-1"><strong>Desc:</strong> This is my fav recipe</p>
+                </div>
+            </div>
+        `);
+    $recipesList.append($recipeListItem);
+  });
+}
 $(document).ready(function () {
   favWorkouts();
+  favRecipes();
 });
