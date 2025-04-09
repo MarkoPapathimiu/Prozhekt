@@ -22,11 +22,35 @@ function saveCurrentUser(current) {
 }
 
 // To calculate BMI for updated data
-// function calculateBmi(weight, height) {
-//   height = height / 100;
-//   const bmi = weight / Math.pow(height, 2);
-//   return bmi.toFixed(2);
-// }
+function calculateAndDisplayBmi(weight, height) {
+  // Convert height from cm to meters
+  height = height / 100;
+
+  // Calculate BMI
+  const bmi = weight / Math.pow(height, 2);
+  const bmiRounded = bmi.toFixed(2);
+
+  const bmiElement = document.getElementById("user-bmi");
+
+  // Set BMI value
+  bmiElement.textContent = bmiRounded;
+
+  // Reset previous styles
+  bmiElement.style.color = '';
+  bmiElement.style.padding = '5px';
+  bmiElement.style.borderRadius = '5px';
+
+  // Set background color based on BMI range
+  if (bmi < 18.5) {
+    bmiElement.style.color = 'yellow'; // Underweight
+  } else if (bmi >= 18.5 && bmi < 25) {
+    bmiElement.style.color = 'green'; // Normal weight
+  } else {
+    bmiElement.style.color = 'red'; // Overweight
+  }
+}
+
+
 
 // To delete user
 // function deleteUser(userID) {
@@ -73,6 +97,9 @@ function userProfile() {
   document.getElementById("user-height").textContent = currentUser.height;
   document.getElementById("user-weight").textContent = currentUser.weight;
   document.getElementById("user-bmi").textContent = currentUser.bmi;
+
+  calculateAndDisplayBmi(currentUser.weight, currentUser.height);
+
 
   // Update the greeting message
   const helloUser = document.getElementById("helloUser");
