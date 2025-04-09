@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- NavBar section -->
-    <div id="navbar"></div>
+    <div class="pb-5" id="navbar"></div>
 
     <!-- Main Elements -->
     <div class="container-fluid p-4">
@@ -51,13 +51,16 @@
                   <p>BMI</p>
                 </div>
               </div>
-
-              <button class="btn btn-md mx-2" id="updateBtn">
-                Edit Profile
-              </button>
-              <!--- Shfaqet nje popup si kur ben sign-up po kte rradh thjesht i ben update te dhenat -->
-              <button class="btn btn-md" id="deleteBtn">Delete Profile</button>
-              <!-- Shfaqet nje alarm message qe te kerkon te konfirmosh nese do e fshish accountin ose jo-->
+              <div>
+                <button class="btn btn-md mx-2" id="updateBtn">
+                  Edit Profile
+                </button>
+                <!--- Shfaqet nje popup si kur ben sign-up po kte rradh thjesht i ben update te dhenat -->
+                <button class="btn btn-md" id="deleteBtn">
+                  Delete Profile
+                </button>
+                <!-- Shfaqet nje alarm message qe te kerkon te konfirmosh nese do e fshish accountin ose jo-->
+              </div>
             </div>
           </div>
         </div>
@@ -71,13 +74,7 @@
           <div class="card p-4 border-0 shadow-sm">
             <h5>Favorite Recipes</h5>
             <div id="favRecipesSection" class="scroll-list rounded shadow-sm">
-              <ul id="recipesList" class="list-group mt-3">
-                <!-- <li class="list-group-item d-flex justify-content-between align-items-center">Phone bill <span class="badge bg-success">Bill paid</span></li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">Internet bill <span class="badge bg-danger">Not paid</span></li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">House rent <span class="badge bg-success">Bill paid</span></li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">Income tax <span class="badge bg-success">Bill paid</span></li>
-                --->
-              </ul>
+              <ul id="recipesList" class="list-group mt-3"></ul>
             </div>
           </div>
         </div>
