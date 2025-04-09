@@ -29,5 +29,24 @@ body {
 }
 
 .navbar-toggler {
-  margin-left: auto; /* This pushes the toggler to the right */
+  margin-left: auto;
+}
+
+#logInBtn, #signUpBtn {
+  background-color: #4682b4;
+}
+
+#logInBtn:hover, #signUpBtn:hover {
+  background-color: #3a306b;
+}
+
+.modal-content {
+  border-radius: 12.5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+  background-color: #c3c3c3;
+}
+
+.modal-content .form-control {
+  background-color: #d2d2d2;
+  border-color: #808080;
 }
