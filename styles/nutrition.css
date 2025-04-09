@@ -1,25 +1,161 @@
-.diet .controls {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  gap: 1.5rem;
-  list-style: none;
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-clr : #211C84;
+    --secondary-clr : #1a1a1a ;
 }
 
-.diet .controls .buttons {
-  padding: 3rem 2rem;
-  background: var(white);
-  cursor: pointer;
-  margin-bottom: 3rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  text-align: center;
-  border-radius: 1rem;
+
+
+p{
+    font-family: "Poppins" , sans-serif;
+    font-size: 15px;
+    color: rgb(54, 54, 54);
+    line-height: 1.7;
+    transition: .4s ease;
 }
 
-.diet .controls .buttons img {
-  height: 4rem;
+a{
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+    transition: .4s ease;
 }
 
-h1 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 30px;
+h2 , h4 {
+    color: var(--primary-clr);
+    line-height: 1.4;
+    font-weight: bold;
+    font-family: "Domine" , sans-serif;
+    text-transform: capitalize;
+    transition: .4s ease;
 }
+
+img {
+    width: 100%;
+    transition: .4s ease;
+}
+
+
+p.title-p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-clr);
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0;
+}
+
+p.title-p img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+h2.title-h {
+    color: var(--secondary-clr);
+    font-size: 38px;
+}
+
+.nav-tabs {
+    gap: 10px;
+    border: none 
+}
+
+.nav-tabs .nav-item  .nav-link {
+    width: auto;
+    background-color: white;
+    color: #000;
+    border-radius: 30px;
+    padding: 10px 30px;
+    border: 2px solid var(--primary-clr);
+    margin-bottom: 20px;
+}
+
+.nav-tabs .nav-item  .nav-link.active  {
+    background-color: var(--primary-clr);
+    color: white;
+}
+
+.service-tab {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: rgba(59, 61, 65, 0.441) 0px 8px 24px;
+    max-width: 100%;
+    margin: auto;
+    transition: .4s ease;
+}
+
+.service-tab h4 {
+    color: var(--primary-clr);
+    font-size: 18px;
+}
+
+.service-tab:hover {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service-tab .ser-img  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+
+.star {
+    font-size: 5px;
+    cursor: pointer;
+    transition: fill 0.2s ease;
+}
+
+.star path {
+    fill: none; /* Fillimi i yllit është i zbrazët */
+    stroke: yellow; /* Cepat janë të verdhë */
+    stroke-width: 1; /* Trashësia e linjës së yllit */
+    transition: stroke 0.2s ease;
+}
+
+.star.filled path {
+    fill: yellow; /* Kur ylli është i plotësuar, bëhet i artë */
+    stroke: yellow; /* Cepat gjithashtu bëhen të artë */
+}
+
+
+.service-tab {
+    position: relative;
+}
+
+.nutrition-info p {
+    margin: 0 0 5px;
+    font-size: 0.9rem;
+}
+
+.read-more-btn {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .read-more-btn:hover {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .read-more-btn.clicked {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .more-content {
+    display: none;
+  }

@@ -5,6 +5,12 @@ marrim favorites dhe i pjestojme per totalin (workouts ose recipes) dhe e shumez
 ne menyre qe te dali % per ta perdorur ne progress bar i bootstrapit.
 
 
+numri i BMI te tracker page do kete ngjyre te ndryshme ne baze te BMI
+e kuqe -> obez
+e verdhe -> i dobet
+jeshile -> normal
+
+
 duhet nje buton sign out dhe nje version i faqes trackerpage qe te kerkon te besh login ose signup
 
 
