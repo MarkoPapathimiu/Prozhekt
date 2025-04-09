@@ -1,0 +1,21 @@
+Merge branch 'main' of https://github.com/MarkoPapathimiu/Prozhekt
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Wed Apr 9 12:08:47 2025 +0200
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	deleted:    .DS_Store
+#	modified:   ideas.txt
+#	modified:   navbar.html
+#	modified:   scripts/tracker.js
+#	modified:   scripts/workout.js
+#	modified:   styles/homePage.css
+#	modified:   styles/workout.css
+#	modified:   tracker.html
+#	modified:   workout.html
+#
