@@ -113,15 +113,15 @@ h2.title-h {
 }
 
 .star path {
-    fill: none; /* Fillimi i yllit është i zbrazët */
-    stroke: yellow; /* Cepat janë të verdhë */
-    stroke-width: 1; /* Trashësia e linjës së yllit */
+    fill: none; 
+    stroke: yellow; 
+    stroke-width: 1; 
     transition: stroke 0.2s ease;
 }
 
 .star.filled path {
-    fill: yellow; /* Kur ylli është i plotësuar, bëhet i artë */
-    stroke: yellow; /* Cepat gjithashtu bëhen të artë */
+    fill: yellow; 
+    stroke: yellow; 
 }
 
 
@@ -136,8 +136,8 @@ h2.title-h {
 
 .read-more-btn {
     background-color: transparent;
-    color: #007bff;
-    border: 2px solid #007bff;
+    color: #22177A;
+    border: 2px solid #22177A;
     border-radius: 25px;
     padding: 10px 20px;
     cursor: pointer;
@@ -147,12 +147,12 @@ h2.title-h {
   }
 
   .read-more-btn:hover {
-    background-color: #007bff;
+    background-color: #4335A7;
     color: white;
   }
 
   .read-more-btn.clicked {
-    background-color: #007bff;
+    background-color: #4335A7;
     color: white;
   }
 
