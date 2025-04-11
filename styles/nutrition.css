@@ -105,6 +105,11 @@ h2.title-h {
     border-radius: 50%;
 }
 
+.star-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
 
 .star {
     font-size: 5px;
@@ -114,14 +119,14 @@ h2.title-h {
 
 .star path {
     fill: none; 
-    stroke: yellow; 
+    stroke: #505050; 
     stroke-width: 1; 
     transition: stroke 0.2s ease;
 }
 
 .star.filled path {
-    fill: yellow; 
-    stroke: yellow; 
+    fill: #ffd700; 
+    stroke: #505050; 
 }
 
 
@@ -130,6 +135,7 @@ h2.title-h {
 }
 
 .nutrition-info p {
+    position: relative;
     margin: 0 0 5px;
     font-size: 0.9rem;
 }
