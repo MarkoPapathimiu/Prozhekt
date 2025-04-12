@@ -23,13 +23,14 @@ a{
     transition: .4s ease;
 }
 
-h2 , h4 {
-    color: var(--primary-clr);
-    line-height: 1.4;
-    font-weight: bold;
-    font-family: "Domine" , sans-serif;
-    text-transform: capitalize;
-    transition: .4s ease;
+.page-content h2,
+.page-content h4 {
+  font-family: "Domine", sans-serif;
+  color: var(--primary-clr);
+  line-height: 1.4;
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: .4s ease;
 }
 
 img {
@@ -88,6 +89,9 @@ h2.title-h {
     max-width: 100%;
     margin: auto;
     transition: .4s ease;
+    
+
+ 
 }
 
 .service-tab h4 {
@@ -105,6 +109,11 @@ h2.title-h {
     border-radius: 50%;
 }
 
+.star-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
 
 .star {
     font-size: 5px;
@@ -113,15 +122,15 @@ h2.title-h {
 }
 
 .star path {
-    fill: none; /* Fillimi i yllit është i zbrazët */
-    stroke: yellow; /* Cepat janë të verdhë */
-    stroke-width: 1; /* Trashësia e linjës së yllit */
+    fill: none; 
+    stroke: #505050; 
+    stroke-width: 1; 
     transition: stroke 0.2s ease;
 }
 
 .star.filled path {
-    fill: yellow; /* Kur ylli është i plotësuar, bëhet i artë */
-    stroke: yellow; /* Cepat gjithashtu bëhen të artë */
+    fill: #ffd700; 
+    stroke: #ffd700;
 }
 
 
@@ -130,14 +139,15 @@ h2.title-h {
 }
 
 .nutrition-info p {
+    position: relative;
     margin: 0 0 5px;
     font-size: 0.9rem;
 }
 
 .read-more-btn {
     background-color: transparent;
-    color: #007bff;
-    border: 2px solid #007bff;
+    color: #22177A;
+    border: 2px solid #22177A;
     border-radius: 25px;
     padding: 10px 20px;
     cursor: pointer;
@@ -147,15 +157,30 @@ h2.title-h {
   }
 
   .read-more-btn:hover {
-    background-color: #007bff;
+    background-color: #4335A7;
     color: white;
   }
 
   .read-more-btn.clicked {
-    background-color: #007bff;
+    background-color: #4335A7;
     color: white;
   }
 
   .more-content {
     display: none;
   }
+
+  .carousel-item img {
+    max-width: 500px;
+    margin:0 auto;
+  }
+    
+ h5{
+    color:#1a1a1a ;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }   
+
+.carousel-item p{
+    color:#040D12;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }

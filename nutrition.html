@@ -23,6 +23,7 @@
 <body>
 
     <div class="pb-5" id="navbar"></div>
+    <main class="page-content">
 
     <section class="py-5 service-tab-sec">
         <div class="container">
@@ -53,12 +54,13 @@
 <div class="tab-content" id="myTabContent">
 
     <!-- BREAKFAST -->
+    
     <div class="tab-pane fade show active" id="Breakfast-tab-pane" role="tabpanel" aria-labelledby="Breakfast-tab" tabindex="0">
         <div class="row">
             <!-- Avocado toast -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4 ">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p1.jpg" alt=""></div>
+                    <div class="ser-img"><img src="assets/f1.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Avocado toast with poached egg</a></p>
                         <div class="nutrition-info">
@@ -83,17 +85,21 @@
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
                         </div>
-                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                            <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                        </svg>
+                        <div class="star-container">
+                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+                                         22 9.24l-7.19-.61L12 2 9.19 8.63 
+                                         2 9.24l5.46 4.73L5.82 21z"/>
+                              </svg>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Yogurt -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4 ">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p2.webp" alt=""></div>
+                    <div class="ser-img"><img src="assets/f2.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Yogurt with Blueberries & Honey</a></p>
                         <div class="nutrition-info">
@@ -118,9 +124,13 @@
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
                         </div>
-                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                            <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                        </svg>
+                        <div class="star-container">
+                         <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                         </svg>
+                        </div>
                     </div>                    
                 </div>
                 
@@ -128,9 +138,9 @@
             </div>
 
             <!-- Egg-avocado sandwich -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p3.webp" alt=""></div>
+                    <div class="ser-img"><img src="assets/f3.webp" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Egg-Avocado Breakfast Sandwich</a></p>
                         <div class="nutrition-info">
@@ -154,17 +164,21 @@
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
                         </div>
-                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                            <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                        </svg>
+                        <div class="star-container">
+                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Oats -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p4.webp" alt=""></div>
+                    <div class="ser-img"><img src="assets/f4.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Oats with chia seeds and almond butter</a></p>
                         <div class="nutrition-info">
@@ -188,93 +202,168 @@
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
                         </div>
-                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                            <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="service-tab">
-                    <div class="ser-img"><img src="assets/b1.webp" alt="Berry-Almond Smoothie Bowl"></div>
-                    <div class="ser-text">
-                        <p><a href="#">Berry-Almond Smoothie Bowl</a></p>
-                        <div class="nutrition-info">
-                            <h4>Nutrition Facts:</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><strong>Calories:</strong>350 kcal</p>
-                                </div>
-                            </div>
-                            <div class="content-container">
-                                <button class="read-more-btn">Read More</button>
-                            </div>
+                        <div class="star-container">
+                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <!-- Avocado toast -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p1.jpg" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Avocado toast with poached egg</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>310 kcal</p>
+                                        <p><strong>Carbs:</strong> 23g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 12g</p>
+                                        <p><strong>Fat:</strong> 20g</p>
+                                    </div>
     
-            <!-- Receta 6 -->
-            <div class="col-lg-3">
-                <div class="service-tab">
-                    <div class="ser-img"><img src="assets/b2.webp" alt="Savory Oatmeal with Cheddar, Collards & Eggs"></div>
-                    <div class="ser-text">
-                        <p><a href="#">Savory Oatmeal with Cheddar, Collards & Eggs
-                        </a></p>
-                        <div class="nutrition-info">
-                            <h4>Nutrition Facts:</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><strong>Calories:</strong>200 kcal</p>
+                                </div>  
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Toast the whole grain bread...</p>
+                                    <p class="more-content">Mash avocado and spread it over the toast.</p>
+                                    <p class="more-content">Poach the egg and place it on top of the avocado.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
                                 </div>
                             </div>
-                            <div class="content-container">
-                                <button class="read-more-btn">Read More</button>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+                                             22 9.24l-7.19-.61L12 2 9.19 8.63 
+                                             2 9.24l5.46 4.73L5.82 21z"/>
+                                  </svg>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
     
-            <!-- Receta 7 -->
-            <div class="col-lg-3">
-                <div class="service-tab">
-                    <div class="ser-img"><img src="assets/b3.webp" alt="Vegan Smoothie Bowl"></div>
-                    <div class="ser-text">
-                        <p><a href="#">Vegan Smoothie Bowl</a></p>
-                        <div class="nutrition-info">
-                            <h4>Nutrition Facts:</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><strong>Calories:</strong>450 kcal</p>
+                <!-- Yogurt -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p2.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Yogurt with Blueberries & Honey</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>196kcal</p>
+                                        <p><strong>Carbs:</strong> 25g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 24g</p>
+                                        <p><strong>Fat:</strong> 1g</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Scoop 1 cup of Greek yogurt into a bowl...</p>
+                                    <p class="more-content">Top with 1/2 cup of blueberries and drizzle with 1-2 tbsp honey.</p>
+                                    <p class="more-content">Add granola or nuts for extra crunch.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
                                 </div>
                             </div>
-                            <div class="content-container">
-                                <button class="read-more-btn">Read More</button>
+                            <div class="star-container">
+                             <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                             </svg>
+                            </div>
+                        </div>                    
+                    </div>
+                    
+    
+                </div>
+    
+                <!-- Egg-avocado sandwich -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p3.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Egg-Avocado Breakfast Sandwich</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>400kcal</p>
+                                        <p><strong>Carbs:</strong> 29g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 15g</p>
+                                        <p><strong>Fat:</strong> 30g</p>
+                                    </div>
+                                </div>
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Spread mayonnaise on 1 bagel thin half...</p>
+                                    <p class="more-content">Top with cheese, avocado, sprouts, fried egg and onion.</p>
+                                    <p class="more-content">Top with the remaining bagel thin half.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
     
-            <!-- Receta 8 -->
-            <div class="col-lg-3">
-                <div class="service-tab">
-                    <div class="ser-img"><img src="assets/b4.webp" alt="Apple Ricotta Pancakes"></div>
-                    <div class="ser-text">
-                        <p><a href="#">Apple Ricotta Pancakes</a></p>
-                        <div class="nutrition-info">
-                            <h4>Nutrition Facts:</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><strong>Calories:</strong>300 kcal</p>
+                <!-- Oats -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p4.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Oats with chia seeds and almond butter</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>350 kcal</p>
+                                        <p><strong>Carbs:</strong> 35g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 12g</p>
+                                        <p><strong>Fat:</strong> 18g</p>
+                                    </div>
+                                </div>
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Cook oats with almond milk until creamy...</p>
+                                    <p class="more-content">Stir in chia seeds and almond butter.</p>
+                                    <p class="more-content">Top with drizzle of honey.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
                                 </div>
                             </div>
-                            <div class="content-container">
-                                <button class="read-more-btn">Read More</button>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -282,15 +371,14 @@
             </div>
         </div>
     </div>
-    </div>
+        
 
     <!-- LUNCH -->
     <div class="tab-pane fade" id="Lunch-tab-pane" role="tabpanel" aria-labelledby="Lunch-tab" tabindex="0">
         <div class="row">
-            <!-- Tuna Salad -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p7.webp" alt=""></div>
+                    <div class="ser-img"><img src="assets/f6.webp" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Tuna Salad with Mixed Greens</a></p>
                         <div class="nutrition-info">
@@ -314,17 +402,21 @@
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
                         </div>
-                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                            <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                        </svg>
+                        <div class="star-container">
+                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Sweet Potato -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p8.jpg" alt=""></div>
+                    <div class="ser-img"><img src="assets/f7.jpg" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Sweet Potato and Black Bean bowl</a></p>
                         <div class="nutrition-info">
@@ -350,17 +442,21 @@
                         </div>
                     </div>
                     <!-- Star Button (SVG) -->
-                    <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                        <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                    </svg>
+                    <div class="star-container">
+                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
             
 
             <!-- Salmon -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p9.jpg" alt=""></div>
+                    <div class="ser-img"><img src="assets/f8.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Salmon with Roasted Vegetables</a></p>
                         <div class="nutrition-info">
@@ -378,26 +474,27 @@
                             <div class="content-container">
                                 <h4>Recipe Directions:</h4>
                                 <p>Roast vegetables with olive oil, salt, and pepper...</p>
-                            
                                 <p class="more-content">Grill or bake the salmon fillet until cooked.</p>
                                 <p class="more-content">Serve salmon with roasted vegetables.</p>
-                                
-                            
+
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
-                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                                <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                              </svg>
                         </div>
-                        
+                    </div>
+                    <div class="star-container">
+                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
                     </div>
                 </div>
             </div>
 
             <!-- Chicken & Broccoli -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p13.webp" alt=""></div>
+                    <div class="ser-img"><img src="assets/f9.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Chicken & Broccoli Casserole</a></p>
                         <div class="nutrition-info">
@@ -423,96 +520,169 @@
                             
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
-                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                                <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                              </svg>
-                            
                         </div>
-
-                       
+                    </div>
+                    <div class="star-container">
+                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <!-- Receta 5 -->
-            <div class="col-lg-3">
-                <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p5.jpg" alt="Recipe 5"></div>
-                    <div class="ser-text">
-                        <p><a href="#">Recipe 5</a></p>
-                        <div class="nutrition-info">
-                            <h4>Nutrition Facts:</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><strong>Calories:</strong>350 kcal</p>
-                                </div>
-                            </div>
-                            <div class="content-container">
-                                <button class="read-more-btn">Read More</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="row">
+                <!-- Avocado toast -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p1.jpg" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Avocado toast with poached egg</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>310 kcal</p>
+                                        <p><strong>Carbs:</strong> 23g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 12g</p>
+                                        <p><strong>Fat:</strong> 20g</p>
+                                    </div>
     
-            <!-- Receta 6 -->
-            <div class="col-lg-3">
-                <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p6.jpg" alt="Recipe 6"></div>
-                    <div class="ser-text">
-                        <p><a href="#">Recipe 6</a></p>
-                        <div class="nutrition-info">
-                            <h4>Nutrition Facts:</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><strong>Calories:</strong>200 kcal</p>
+                                </div>  
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Toast the whole grain bread...</p>
+                                    <p class="more-content">Mash avocado and spread it over the toast.</p>
+                                    <p class="more-content">Poach the egg and place it on top of the avocado.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
                                 </div>
                             </div>
-                            <div class="content-container">
-                                <button class="read-more-btn">Read More</button>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+                                             22 9.24l-7.19-.61L12 2 9.19 8.63 
+                                             2 9.24l5.46 4.73L5.82 21z"/>
+                                  </svg>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
     
-            <!-- Receta 7 -->
-            <div class="col-lg-3">
-                <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p7.jpg" alt="Recipe 7"></div>
-                    <div class="ser-text">
-                        <p><a href="#">Recipe 7</a></p>
-                        <div class="nutrition-info">
-                            <h4>Nutrition Facts:</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><strong>Calories:</strong>450 kcal</p>
+                <!-- Yogurt -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p2.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Yogurt with Blueberries & Honey</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>196kcal</p>
+                                        <p><strong>Carbs:</strong> 25g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 24g</p>
+                                        <p><strong>Fat:</strong> 1g</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Scoop 1 cup of Greek yogurt into a bowl...</p>
+                                    <p class="more-content">Top with 1/2 cup of blueberries and drizzle with 1-2 tbsp honey.</p>
+                                    <p class="more-content">Add granola or nuts for extra crunch.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
                                 </div>
                             </div>
-                            <div class="content-container">
-                                <button class="read-more-btn">Read More</button>
+                            <div class="star-container">
+                             <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                             </svg>
+                            </div>
+                        </div>                    
+                    </div>
+                    
+    
+                </div>
+    
+                <!-- Egg-avocado sandwich -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p3.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Egg-Avocado Breakfast Sandwich</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>400kcal</p>
+                                        <p><strong>Carbs:</strong> 29g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 15g</p>
+                                        <p><strong>Fat:</strong> 30g</p>
+                                    </div>
+                                </div>
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Spread mayonnaise on 1 bagel thin half...</p>
+                                    <p class="more-content">Top with cheese, avocado, sprouts, fried egg and onion.</p>
+                                    <p class="more-content">Top with the remaining bagel thin half.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
     
-            <!-- Receta 8 -->
-            <div class="col-lg-3">
-                <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p8.jpg" alt="Recipe 8"></div>
-                    <div class="ser-text">
-                        <p><a href="#">Recipe 8</a></p>
-                        <div class="nutrition-info">
-                            <h4>Nutrition Facts:</h4>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><strong>Calories:</strong>300 kcal</p>
+                <!-- Oats -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p4.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Oats with chia seeds and almond butter</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>350 kcal</p>
+                                        <p><strong>Carbs:</strong> 35g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 12g</p>
+                                        <p><strong>Fat:</strong> 18g</p>
+                                    </div>
+                                </div>
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Cook oats with almond milk until creamy...</p>
+                                    <p class="more-content">Stir in chia seeds and almond butter.</p>
+                                    <p class="more-content">Top with drizzle of honey.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
                                 </div>
                             </div>
-                            <div class="content-container">
-                                <button class="read-more-btn">Read More</button>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -520,15 +690,15 @@
             </div>
         </div>
     </div>
-    </div>
+        
 
     <!-- DINNER -->
     <div class="tab-pane fade" id="Dinner-tab-pane" role="tabpanel" aria-labelledby="Dinner-tab" tabindex="0">
         <div class="row">
             <!-- Bean & Barley -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p11.webp" alt=""></div>
+                    <div class="ser-img"><img src="assets/f10.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Bean & Barley Soup</a></p>
                         <div class="nutrition-info">
@@ -553,9 +723,13 @@
                             
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
-                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                                <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                              </svg>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                            </div>
                         </div>
                         
                     </div>
@@ -563,9 +737,9 @@
             </div>
 
             <!-- Tomato Soup -->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p20.jpg" alt=""></div>
+                    <div class="ser-img"><img src="assets/f11.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Tomato Soup with Beans & Greens</a></p>
                         <div class="nutrition-info">
@@ -589,18 +763,22 @@
                             
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                             </div>
-                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                                <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                              </svg>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                            </div>
                         </div>
                         
                     </div>
                 </div>
             </div>
             <!--Burritos-->
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p16.webp" alt=""></div>
+                    <div class="ser-img"><img src="assets/f12.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Steak Burritos</a></p>
                         <div class="nutrition-info">
@@ -617,25 +795,28 @@
                             </div>
                             <div class="content-container">
                                 <h4>Recipe Directions:</h4>
-                                <p>Simmer salsa, water, and rice for 5 minutes, then add beans and cook until rice is tender...</p>
-                                <p class="more-content">Season steak with pepper, cook in oil over medium-high heat until browned, 3-5 minutes.</p>
+                                <p>Simmer salsa, water, and rice for 5 minutes, then add beans and cook...</p>
+                                <p class="more-content">until rice is tender. Season steak with pepper, cook in oil over medium-high heat until browned, 3-5 minutes.</p>
                                 <p class="more-content">Roll each tortilla into a burrito.</p>
                             
                                 <button class="read-more-btn" id="read-more-btn">Read More</button>
                     
                             </div>
                         </div>
-                        
-                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                            <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                          </svg>
-                        
+                        <div class="star-container">
+                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
+
+            <div class="col-lg-3 mb-4">
                 <div class="service-tab">
-                    <div class="ser-img"><img src="assets/p14.webp" alt=""></div>
+                    <div class="ser-img"><img src="assets/f13.png" alt=""></div>
                     <div class="ser-text">
                         <p><a href="#">Easy Pea & Spinach Carbonara</a></p>
                         <div class="nutrition-info">
@@ -663,22 +844,249 @@
                             </div>
                             
                         </div>
-                        <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 16 16">
-                            <path d="M8 12.923l-4.194 2.208 1.057-4.91-3.663-3.57 4.902-.406L8 0l2.898 5.345 4.902.406-3.663 3.57 1.057 4.91L8 12.923z"/>
-                          </svg>
-                        
+                        <div class="star-container">
+                            <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+           22 9.24l-7.19-.61L12 2 9.19 8.63 
+           2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Avocado toast -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p1.jpg" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Avocado toast with poached egg</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>310 kcal</p>
+                                        <p><strong>Carbs:</strong> 23g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 12g</p>
+                                        <p><strong>Fat:</strong> 20g</p>
+                                    </div>
+    
+                                </div>  
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Toast the whole grain bread...</p>
+                                    <p class="more-content">Mash avocado and spread it over the toast.</p>
+                                    <p class="more-content">Poach the egg and place it on top of the avocado.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+                                             22 9.24l-7.19-.61L12 2 9.19 8.63 
+                                             2 9.24l5.46 4.73L5.82 21z"/>
+                                  </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Yogurt -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p2.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Yogurt with Blueberries & Honey</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>196kcal</p>
+                                        <p><strong>Carbs:</strong> 25g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 24g</p>
+                                        <p><strong>Fat:</strong> 1g</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Scoop 1 cup of Greek yogurt into a bowl...</p>
+                                    <p class="more-content">Top with 1/2 cup of blueberries and drizzle with 1-2 tbsp honey.</p>
+                                    <p class="more-content">Add granola or nuts for extra crunch.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="star-container">
+                             <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                             </svg>
+                            </div>
+                        </div>                    
+                    </div>
+                    
+    
+                </div>
+    
+                <!-- Egg-avocado sandwich -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p3.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Egg-Avocado Breakfast Sandwich</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>400kcal</p>
+                                        <p><strong>Carbs:</strong> 29g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 15g</p>
+                                        <p><strong>Fat:</strong> 30g</p>
+                                    </div>
+                                </div>
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Spread mayonnaise on 1 bagel thin half...</p>
+                                    <p class="more-content">Top with cheese, avocado, sprouts, fried egg and onion.</p>
+                                    <p class="more-content">Top with the remaining bagel thin half.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Oats -->
+                <div class="col-lg-3 mb-4">
+                    <div class="service-tab">
+                        <div class="ser-img"><img src="assets/p4.webp" alt=""></div>
+                        <div class="ser-text">
+                            <p><a href="#">Oats with chia seeds and almond butter</a></p>
+                            <div class="nutrition-info">
+                                <h4>Nutrition Facts:</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p><strong>Calories:</strong>350 kcal</p>
+                                        <p><strong>Carbs:</strong> 35g</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>Protein:</strong> 12g</p>
+                                        <p><strong>Fat:</strong> 18g</p>
+                                    </div>
+                                </div>
+                                <div class="content-container">
+                                    <h4>Recipe Directions:</h4>
+                                    <p>Cook oats with almond milk until creamy...</p>
+                                    <p class="more-content">Stir in chia seeds and almond butter.</p>
+                                    <p class="more-content">Top with drizzle of honey.</p>
+                                   
+                                    <button class="read-more-btn" id="read-more-btn">Read More</button>
+                                </div>
+                            </div>
+                            <div class="star-container">
+                                <svg id="starButton" xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="star" viewBox="0 0 24 24">
+                                    <path d="M12 17.27L18.18 21 16.54 13.97 
+               22 9.24l-7.19-.61L12 2 9.19 8.63 
+               2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-   
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Healthy Smoothie Recipes</h1>
+        <p><em>Find healthy, delicious smoothie recipes including strawberry, tropical and other fruit smoothies, green smoothies and protein smoothies.</em></p>      
+    </div>
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        </div>
+      
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/v1.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Strawberry-Blueberry-Banana</h5>
+              <p class="fst-light">Combine strawberries, blueberries, banana, cashew milk, cashew butter, and hemp seeds in a blender.</p>
 
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/v2.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Raspberry & Spinach Smoothie</h5>
+              <p class="fst-light">Combine raspberries, spinach, coconut milk, ice, dates, and vanilla in a blender;<br> process until smooth, about 2 minutes.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/v3.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Strawberry-Pineapple Smoothie</h5>
+              <p class="">Combine strawberries, pineapple, almond milk, and almond butter in a blender.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/v5.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Strawberry-Banana Green Smoothie</h5>
+              <p>Puree banana, spinach, yogurt, milk, strawberries, and flaxseeds in a blender until smooth.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/v4.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Cherry Smoothie</h5>
+              <p>Add oat milk, almond butter, cocoa, vanilla, cherries, and sugar to a blender.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/v6.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Chocolate-Cherry Protein Shake</h5>
+              <p>A creamy smoothie made with soymilk, bananas, cherries, yogurt, peanut butter, and cocoa for a rich, indulgent treat.</p>
+            </div>
+          </div>
+        </div>
+      
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
 
-
-
-    
+     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="/scripts/navbar.js"></script>
     <script src="/scripts/nutrition.js"></script>
