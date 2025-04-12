@@ -23,13 +23,14 @@ a{
     transition: .4s ease;
 }
 
-h2 , h4 {
-    color: var(--primary-clr);
-    line-height: 1.4;
-    font-weight: bold;
-    font-family: "Domine" , sans-serif;
-    text-transform: capitalize;
-    transition: .4s ease;
+.page-content h2,
+.page-content h4 {
+  font-family: "Domine", sans-serif;
+  color: var(--primary-clr);
+  line-height: 1.4;
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: .4s ease;
 }
 
 img {
@@ -88,6 +89,9 @@ h2.title-h {
     max-width: 100%;
     margin: auto;
     transition: .4s ease;
+    
+
+ 
 }
 
 .service-tab h4 {
@@ -126,7 +130,7 @@ h2.title-h {
 
 .star.filled path {
     fill: #ffd700; 
-    stroke: #505050; 
+    stroke: #ffd700;
 }
 
 
@@ -165,3 +169,18 @@ h2.title-h {
   .more-content {
     display: none;
   }
+
+  .carousel-item img {
+    max-width: 500px;
+    margin:0 auto;
+  }
+    
+ h5{
+    color:#1a1a1a ;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }   
+
+.carousel-item p{
+    color:#040D12;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
