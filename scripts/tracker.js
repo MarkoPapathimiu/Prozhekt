@@ -54,7 +54,7 @@ document.getElementById("logoutBtn").addEventListener("click", logOut);
 // To log out
 function logOut() {
   localStorage.removeItem("currentUser");
-  alert("You are now logged out.");
+  console.log("You are now logged out.");
   window.location.href = "logout.html";
 }
 

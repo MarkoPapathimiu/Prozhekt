@@ -5,7 +5,4 @@ marrim favorites dhe i pjestojme per totalin (workouts ose recipes) dhe e shumez
 ne menyre qe te dali % per ta perdorur ne progress bar i bootstrapit.
 
 
-duhet nje buton sign out dhe nje version i faqes trackerpage qe te kerkon te besh login ose signup
-
-
 navbar toggler del ne anen e gabuar te home page

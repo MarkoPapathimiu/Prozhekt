@@ -91,7 +91,7 @@ function initializeForms() {
 
       if (user) {
         console.log("Login successful:", enteredUserName);
-        alert("You are now logged in!");
+        console.log("You are now logged in!");
         // Save the current user's ID to localStorage
         localStorage.setItem("currentUser", user.userID);
       } else {
