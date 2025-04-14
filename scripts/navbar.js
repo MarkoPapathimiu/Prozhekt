@@ -98,11 +98,24 @@ function initializeForms() {
         console.log("Login failed for user:", enteredUserName);
         alert("Invalid username or password.");
       }
-      window.location.reload();
+      window.location.href = "/tracker.html";
     });
   } else {
     console.error("Login Form not found.");
   }
+
+  document
+    .getElementById("progressTrackerNav")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const currentUser = localStorage.getItem("currentUser");
+      if (currentUser && currentUser !== "0") {
+        window.location.href = "/tracker.html"; // User is logged in
+      } else {
+        window.location.href = "/logout.html"; // User not logged in
+      }
+    });
 }
 
 window.onload = loadNavbar;
