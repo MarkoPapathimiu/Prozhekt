@@ -25,7 +25,7 @@ a{
 
 .page-content h2,
 .page-content h4 {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:'Segoe UI';
   color: var(--primary-clr);
   line-height: 1.4;
   text-transform: capitalize;
@@ -84,14 +84,12 @@ h2.title-h {
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: rgba(176, 176, 180, 0.441) 0px 8px 24px;
+    box-shadow: rgba(87, 85, 85, 0.341) 0px 8px 24px;
     max-width: 100%;
     margin: auto;
     transition: .4s ease;
-    
-
- 
 }
+
 
 .service-tab h4 {
     color: var(--primary-clr);
@@ -153,12 +151,13 @@ h2.title-h {
     font-size: 16px;
     margin-top: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
+}
+
 
   .read-more-btn:hover {
     background-color: #2c2454;
     color: white;
-  }
+}
 
   .read-more-btn.clicked {
     background-color: #2c2454;
@@ -187,7 +186,8 @@ h5{
  h1{
     color: #A8A196; 
     font-family:'Trebuchet MS';
-    padding: 10px; 
+    padding: 30px; 
+    font-size: 30px;
 }
 
 body {
@@ -226,3 +226,80 @@ body {
   .carousel-control-next-icon::before {
     transform: translate(-50%, -50%) rotate(45deg);
   }
+
+  .row {
+    --bs-gutter-x: 2rem;
+    --bs-gutter-y: 3rem;
+  }
+
+  .custom-margin-top {
+    margin-top: 120px;
+  }
+  
+
+  .timeline {
+    position: relative;
+    margin: 30px auto;
+    padding-left: 45px;
+    
+    max-width: 400px;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .timeline-content {
+    padding-left: 90px;
+    font-size: 16px;
+    font-family:'Trebuchet MS';
+    
+  }
+  
+
+#smoothieTimeline0 .timeline-item .timeline-content {
+    color: #A888B5;
+    padding-left: 120px ;
+    margin-top: 25px;
+}
+
+#smoothieTimeline1 .timeline-item .timeline-content{
+    color: #825B32;
+    padding-left: 230px;
+    margin-top: 33px;
+
+
+
+}
+
+#smoothieTimeline2 .timeline-item .timeline-content{
+    color:#FFB38E;
+    padding-left: 200px;
+    margin-top: 33px;
+
+}
+
+#smoothieTimeline3 .timeline-item .timeline-content{
+    color:#809D3C ;
+    padding-left: 195px;
+    margin-top: 30px;
+}
+
+#smoothieTimeline4 .timeline-item .timeline-content{
+    color: #D76C82;
+    padding-left: 230px;
+    margin-top: 25px;
+}
+#smoothieTimeline5 .timeline-item .timeline-content{
+    color: #BF9264;
+    padding-left: 220px;
+    margin-top: 30px;
+}
+.carousel-caption h5 {
+    position:sticky;
+    top: 10px;  /* Shtoni distancë nga pjesa e sipërme e fotos */
+    left: 10px;  /* Shtoni distancë nga ana e majtë e fotos */
+    margin: 0;  /* Heq çdo hapësirë të paracaktuar rreth titullit */
+    font-size: 18px;  /* Rregulloni madhësinë e fontit sipas dëshirës */
+}
