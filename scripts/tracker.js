@@ -36,21 +36,19 @@ function calculateAndDisplayBmi(weight, height) {
   bmiElement.textContent = bmiRounded;
 
   // Reset previous styles
-  bmiElement.style.color = '';
-  bmiElement.style.padding = '5px';
-  bmiElement.style.borderRadius = '5px';
+  bmiElement.style.color = "";
+  bmiElement.style.padding = "5px";
+  bmiElement.style.borderRadius = "5px";
 
   // Set background color based on BMI range
   if (bmi < 18.5) {
-    bmiElement.style.color = 'yellow'; // Underweight
+    bmiElement.style.color = "yellow"; // Underweight
   } else if (bmi >= 18.5 && bmi < 25) {
-    bmiElement.style.color = 'green'; // Normal weight
+    bmiElement.style.color = "green"; // Normal weight
   } else {
-    bmiElement.style.color = 'red'; // Overweight
+    bmiElement.style.color = "red"; // Overweight
   }
 }
-
-
 
 // To delete user
 // function deleteUser(userID) {
@@ -99,7 +97,6 @@ function userProfile() {
   document.getElementById("user-bmi").textContent = currentUser.bmi;
 
   calculateAndDisplayBmi(currentUser.weight, currentUser.height);
-
 
   // Update the greeting message
   const helloUser = document.getElementById("helloUser");
