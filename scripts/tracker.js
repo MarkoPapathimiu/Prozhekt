@@ -56,8 +56,6 @@ function calculateAndDisplayBmi(weight, height) {
   }
 }
 
-
-
 // To delete user
 // function deleteUser(userID) {
 //   let projects = getProjects();
@@ -65,43 +63,6 @@ function calculateAndDisplayBmi(weight, height) {
 //   saveProject(projects);
 //   renderProjects();
 // }
-
-function userProfile() {
-  const currentUserID = getCurrentUser();
-
-  if (!currentUserID) {
-    console.error("No current user ID found.");
-    return;
-  }
-
-  fetch(`https://localhost:7084/api/user/GetUserById/${currentUserID}`)
-    .then((res) => res.json())
-    .then((currentUser) => {
-      if (!currentUser) {
-        console.error("User not found.");
-        return;
-      }
-
-      localStorage.setItem("currentUserData", JSON.stringify(currentUser));
-
-      document.getElementById("user-name").textContent = currentUser.username;
-      document.getElementById("user-age").textContent = currentUser.age;
-      document.getElementById("user-height").textContent = currentUser.height;
-      document.getElementById("user-weight").textContent = currentUser.weight;
-      document.getElementById("user-bmi").textContent = currentUser.bmi;
-
-  calculateAndDisplayBmi(currentUser.weight, currentUser.height);
-
-
-  // Update the greeting message
-  const helloUser = document.getElementById("helloUser");
-  if (helloUser) {
-    helloUser.textContent = `Hello, ${currentUser.username}!`;
-  }
-}
-$(document).ready(function () {
-  userProfile();
-});
 
 // Favorite Workouts Section
 function favWorkouts() {

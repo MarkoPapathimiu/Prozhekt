@@ -41,37 +41,43 @@ function initializeForms() {
     localStorage.setItem("users", JSON.stringify(users));
   }
 
-  // Sign up event listener
-  if (signUpForm) {
-    signUpForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+  // Sign Up - API call
+  function createUser(event) {
+    event.preventDefault();
 
-      const users = getUsers();
-      const newUser = {
-        userID: generateId(),
-        username: userName.value,
-        password: password.value,
-        age: userAge.value,
-        height: userHeight.value,
-        weight: userWeight.value,
-        bmi: calculateBmi(userWeight.value, userHeight.value),
-        favWorkouts: [],
-        favRecipes: [],
-      };
+    const username = document.getElementById("usernameInput").value.trim();
+    const password = document.getElementById("passwordInput").value;
+    const age = parseInt(document.getElementById("ageInput").value);
+    const height = parseInt(document.getElementById("heightInput").value);
+    const weight = parseInt(document.getElementById("weightInput").value);
 
-      const exists = users.some((user) => user.username === newUser.username);
-      if (exists) {
-        alert("Username already exists! Please choose another username.");
-        return;
-      }
+    if (!username || !password || !age || !height || !weight) {
+      alert("Please fill in all fields.");
+      return;
+    }
 
-      users.push(newUser);
-      saveUser(users);
-      alert("User registered successfully!");
-      signUpForm.reset();
+    const userData = {
+      username: username,
+      password: password,
+      age: age,
+      height: height,
+      weight: weight,
+    };
+
+    $.ajax({
+      url: "https://localhost:7266/api/User/CreateUser",
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(userData),
+      success: function (response) {
+        alert("User created successfully! You can now log in.");
+        signUpForm.reset();
+      },
+      error: function (xhr) {
+        console.error("Error creating user:", xhr);
+        alert("Username may already exist. Please try again.");
+      },
     });
-  } else {
-    console.error("Sign Up Form not found.");
   }
 
   // Login event listener
