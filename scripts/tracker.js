@@ -58,14 +58,6 @@ function logOut() {
 }
 document.getElementById("logoutBtn").addEventListener("click", logOut);
 
-// To delete user
-// function deleteUser(userID) {
-//   let projects = getProjects();
-//   projects = projects.filter((project) => project.id !== projectID);
-//   saveProject(projects);
-//   renderProjects();
-// }
-
 function userProfile() {
   const currentUserID = getCurrentUser();
 
@@ -172,12 +164,16 @@ function deleteUser() {
     return;
   }
 
-  if (!confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+  if (
+    !confirm(
+      "Are you sure you want to delete your account? This action cannot be undone."
+    )
+  ) {
     return;
   }
 
   fetch(`https://localhost:7084/api/user/DeleteUser/${userId}`, {
-    method: "DELETE"
+    method: "DELETE",
   })
     .then((response) => {
       if (!response.ok) {
@@ -198,7 +194,6 @@ function deleteUser() {
 }
 
 document.getElementById("deleteBtn").addEventListener("click", deleteUser);
-
 
 // Favorite Workouts Section
 function favWorkouts() {
