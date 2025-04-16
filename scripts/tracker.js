@@ -1,6 +1,12 @@
 const $workoutsList = $("#workoutsList");
 const $recipesList = $("#recipesList");
 
+const userName = document.getElementById("userName");
+const password = document.getElementById("password");
+const userAge = document.getElementById("userAge");
+const userHeight = document.getElementById("userHeight");
+const userWeight = document.getElementById("userWeight");
+
 function getUsers() {
   return JSON.parse(localStorage.getItem("users")) || [];
 }
@@ -42,11 +48,11 @@ function calculateAndDisplayBmi(weight, height) {
 
   // Set background color based on BMI range
   if (bmi < 18.5) {
-    bmiElement.style.color = "yellow"; // Underweight
+    bmiElement.style.color = "#ffd700"; // Underweight
   } else if (bmi >= 18.5 && bmi < 25) {
-    bmiElement.style.color = "green"; // Normal weight
+    bmiElement.style.color = "#28a745"; // Normal weight
   } else {
-    bmiElement.style.color = "red"; // Overweight
+    bmiElement.style.color = "#dc3545"; // Overweight
   }
 }
 
@@ -57,56 +63,6 @@ function calculateAndDisplayBmi(weight, height) {
 //   saveProject(projects);
 //   renderProjects();
 // }
-
-function userProfile() {
-  const users = getUsers();
-  const currentUserID = getCurrentUser();
-
-  console.log(
-    "Current User ID:",
-    currentUserID,
-    "Type: ",
-    typeof currentUserID
-  ); // Debugging: Log the current user ID
-
-  if (!currentUserID) {
-    console.error("No current user ID found.");
-    return; // Stop function execution if no current user ID is found
-  }
-
-  const currentUser = users.find((user) => user.userID === currentUserID);
-
-  if (currentUser) {
-    console.log("Found Current User:", currentUser); // Debugging: Log the found user
-  }
-  if (!currentUser) {
-    console.error("User not found.");
-    return; // Exit the function if no user matches the current ID
-  }
-
-  // Now save the currentUser object to localStorage
-  localStorage.setItem("currentUserData", JSON.stringify(currentUser));
-
-  console.log("This is the current user:", currentUser);
-
-  // Update the DOM elements with user data
-  document.getElementById("user-name").textContent = currentUser.username;
-  document.getElementById("user-age").textContent = currentUser.age;
-  document.getElementById("user-height").textContent = currentUser.height;
-  document.getElementById("user-weight").textContent = currentUser.weight;
-  document.getElementById("user-bmi").textContent = currentUser.bmi;
-
-  calculateAndDisplayBmi(currentUser.weight, currentUser.height);
-
-  // Update the greeting message
-  const helloUser = document.getElementById("helloUser");
-  if (helloUser) {
-    helloUser.textContent = `Hello, ${currentUser.username}!`;
-  }
-}
-$(document).ready(function () {
-  userProfile();
-});
 
 // Favorite Workouts Section
 function favWorkouts() {
@@ -153,4 +109,7 @@ function favRecipes() {
 $(document).ready(function () {
   favWorkouts();
   favRecipes();
+});
+$(document).ready(function () {
+  userProfile();
 });

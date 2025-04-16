@@ -31,12 +31,12 @@ body {
   color: #f4f4f4;
 }
 
-#loginBtn {
+#btnLogIn {
   background-color: #4682b4;
   color: #f4f4f4;
 }
 
-#signupBtn {
+#btnSignUp {
   background-color: #5f51a7;
   color: #f4f4f4;
 }
