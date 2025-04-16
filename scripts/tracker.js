@@ -56,13 +56,7 @@ function calculateAndDisplayBmi(weight, height) {
   }
 }
 
-document.getElementById("logoutBtn").addEventListener("click", logOut);
-// To log out
-function logOut() {
-  localStorage.removeItem("currentUser");
-  console.log("You are now logged out.");
-  window.location.href = "logout.html";
-}
+
 
 // To delete user
 // function deleteUser(userID) {
@@ -96,57 +90,18 @@ function userProfile() {
       document.getElementById("user-weight").textContent = currentUser.weight;
       document.getElementById("user-bmi").textContent = currentUser.bmi;
 
-      calculateAndDisplayBmi(currentUser.weight, currentUser.height);
+  calculateAndDisplayBmi(currentUser.weight, currentUser.height);
 
-      const helloUser = document.getElementById("helloUser");
-      if (helloUser) {
-        helloUser.textContent = `Hello, ${currentUser.username}!`;
-      }
-    })
-    .catch((err) => console.error("Error fetching user:", err));
-}
 
-document.getElementById("updateBtn").addEventListener("click", updateProfile);
-function updateProfile() {
-  const currentUserID = getCurrentUser();
-
-  if (!currentUserID) {
-    console.error("No current user ID found.");
-    return;
+  // Update the greeting message
+  const helloUser = document.getElementById("helloUser");
+  if (helloUser) {
+    helloUser.textContent = `Hello, ${currentUser.username}!`;
   }
-
-  const updatedData = {
-    id: parseInt(currentUserID),
-    username: userName.value,
-    password: password.value,
-    age: userAge.value,
-    height: userHeight.value,
-    weight: userWeight.value,
-    bmi: calculateBmi(userWeight.value, userHeight.value),
-    favWorkouts: [],
-    favRecipes: [],
-  };
-
-  fetch("https://localhost:7084/api/user/UpdateUser", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(updatedData),
-  })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Failed to update user.");
-      }
-      return res.text();
-    })
-    .then(() => {
-      alert("Profile updated successfully!");
-    })
-    .catch((err) => {
-      alert("Failed to update user.");
-    });
 }
+$(document).ready(function () {
+  userProfile();
+});
 
 // Favorite Workouts Section
 function favWorkouts() {
