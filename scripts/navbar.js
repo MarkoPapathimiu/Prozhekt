@@ -44,52 +44,52 @@ function initializeForms() {
   // Sign Up - API call
   function createUser(event) {
     event.preventDefault();
-    // Sign Up - API call
-    function createUser(event) {
-      event.preventDefault();
 
-      const username = document.getElementById("usernameInput").value.trim();
-      const password = document.getElementById("passwordInput").value;
-      const age = parseInt(document.getElementById("ageInput").value);
-      const height = parseInt(document.getElementById("heightInput").value);
-      const weight = parseInt(document.getElementById("weightInput").value);
+    const username = document.getElementById("usernameInput").value.trim();
+    const password = document.getElementById("passwordInput").value;
+    const age = parseInt(document.getElementById("ageInput").value);
+    const height = parseInt(document.getElementById("heightInput").value);
+    const weight = parseInt(document.getElementById("weightInput").value);
 
-      if (!username || !password || !age || !height || !weight) {
-        alert("Please fill in all fields.");
-        return;
-      }
-
-      const userData = {
-        username: username,
-        password: password,
-        age: age,
-        height: height,
-        weight: weight,
-      };
-
-      fetch("https://localhost:7084/api/user/CreateUser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      })
-        .then((response) => {
-          if (!response.ok) throw new Error("User creation failed");
-          return response.json();
-        })
-        .then((data) => {
-          alert("User created successfully! You can now log in.");
-          signUpForm.reset();
-        })
-        .catch((error) => {
-          console.error("Error creating user:", error);
-          alert("Username may already exist. Please try again.");
-        });
+    if (!username || !password || !age || !height || !weight) {
+      alert("Please fill in all fields.");
+      return;
     }
 
-    // Login - API call
-    function loginUser(event) {
+    const userData = {
+      username: username,
+      password: password,
+      age: age,
+      height: height,
+      weight: weight,
+    };
+
+    fetch("https://localhost:7084/api/user/CreateUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("User creation failed");
+        return response.json();
+      })
+      .then((data) => {
+        alert("User created successfully! You can now log in.");
+        signUpForm.reset();
+      })
+      .catch((error) => {
+        console.error("Error creating user:", error);
+        alert("Username may already exist. Please try again.");
+      });
+  }
+
+  // Login - API call
+  function loginUser(event) {
+    const currentUserId = getCurrentUser();
+
+    if (currentUserId === "0") {
       event.preventDefault();
 
       const username = document
@@ -117,35 +117,37 @@ function initializeForms() {
           console.log("Login successful:", user);
           alert("You are now logged in!");
           localStorage.setItem("currentUser", user.id);
-          window.location.href = "/tracker.html"; // Or wherever your dashboard is
+          window.location.href = "/tracker.html";
         })
         .catch((error) => {
           console.error("Login failed:", error);
           alert("Invalid username or password.");
         });
+    } else {
+      alert("Log Out first!");
     }
-
-    if (signUpForm) {
-      signUpForm.addEventListener("submit", createUser);
-    }
-
-    if (loginForm) {
-      loginForm.addEventListener("submit", loginUser);
-    }
-
-    document
-      .getElementById("progressTrackerNav")
-      .addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const currentUser = localStorage.getItem("currentUser");
-        if (currentUser && currentUser !== "0") {
-          window.location.href = "/tracker.html"; // User is logged in
-        } else {
-          window.location.href = "/logout.html"; // User not logged in
-        }
-      });
   }
+
+  if (signUpForm) {
+    signUpForm.addEventListener("submit", createUser);
+  }
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", loginUser);
+  }
+
+  document
+    .getElementById("progressTrackerNav")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const currentUser = localStorage.getItem("currentUser");
+      if (currentUser && currentUser !== "0") {
+        window.location.href = "/tracker.html"; // User is logged in
+      } else {
+        window.location.href = "/logout.html"; // User not logged in
+      }
+    });
 }
 
 window.onload = loadNavbar();

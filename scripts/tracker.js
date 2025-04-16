@@ -1,12 +1,6 @@
 const $workoutsList = $("#workoutsList");
 const $recipesList = $("#recipesList");
 
-const userName = document.getElementById("userName");
-const password = document.getElementById("password");
-const userAge = document.getElementById("userAge");
-const userHeight = document.getElementById("userHeight");
-const userWeight = document.getElementById("userWeight");
-
 function getUsers() {
   return JSON.parse(localStorage.getItem("users")) || [];
 }
@@ -28,33 +22,41 @@ function saveCurrentUser(current) {
 }
 
 // To calculate BMI for updated data
-function calculateAndDisplayBmi(weight, height) {
-  // Convert height from cm to meters
-  height = height / 100;
+// function calculateAndDisplayBmi(weight, height) {
+//   // Convert height from cm to meters
+//   height = height / 100;
 
-  // Calculate BMI
-  const bmi = weight / Math.pow(height, 2);
-  const bmiRounded = bmi.toFixed(2);
+//   // Calculate BMI
+//   const bmi = weight / Math.pow(height, 2);
+//   const bmiRounded = bmi.toFixed(2);
 
-  const bmiElement = document.getElementById("user-bmi");
+//   const bmiElement = document.getElementById("user-bmi");
 
-  // Set BMI value
-  bmiElement.textContent = bmiRounded;
+//   // Set BMI value
+//   bmiElement.textContent = bmiRounded;
 
-  // Reset previous styles
-  bmiElement.style.color = "";
-  bmiElement.style.padding = "5px";
-  bmiElement.style.borderRadius = "5px";
+//   // Reset previous styles
+//   bmiElement.style.color = "";
+//   bmiElement.style.padding = "5px";
+//   bmiElement.style.borderRadius = "5px";
 
-  // Set background color based on BMI range
-  if (bmi < 18.5) {
-    bmiElement.style.color = "#ffd700"; // Underweight
-  } else if (bmi >= 18.5 && bmi < 25) {
-    bmiElement.style.color = "#28a745"; // Normal weight
-  } else {
-    bmiElement.style.color = "#dc3545"; // Overweight
-  }
+//   // Set background color based on BMI range
+//   if (bmi < 18.5) {
+//     bmiElement.style.color = "#ffd700"; // Underweight
+//   } else if (bmi >= 18.5 && bmi < 25) {
+//     bmiElement.style.color = "#28a745"; // Normal weight
+//   } else {
+//     bmiElement.style.color = "#dc3545"; // Overweight
+//   }
+// }
+
+// To log out
+function logOut() {
+  localStorage.setItem("currentUser", "0");
+  console.log("You are now logged out.");
+  window.location.href = "logout.html";
 }
+document.getElementById("logoutBtn").addEventListener("click", logOut);
 
 // To delete user
 // function deleteUser(userID) {
@@ -63,6 +65,104 @@ function calculateAndDisplayBmi(weight, height) {
 //   saveProject(projects);
 //   renderProjects();
 // }
+
+function userProfile() {
+  const currentUserID = getCurrentUser();
+
+  if (!currentUserID || currentUserID === "0") {
+    console.error("No valid current user ID found.");
+    return;
+  }
+
+  fetch(`https://localhost:7084/api/user/GetUserById/${currentUserID}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+      return response.json();
+    })
+    .then((currentUser) => {
+      // Save user data to localStorage
+      saveCurrentUser(currentUser);
+
+      // Update the DOM with server-provided BMI
+      document.getElementById("user-name").textContent = currentUser.username;
+      document.getElementById("user-age").textContent = currentUser.age;
+      document.getElementById("user-height").textContent = currentUser.height;
+      document.getElementById("user-weight").textContent = currentUser.weight;
+      document.getElementById("user-bmi").textContent = currentUser.bmi;
+
+      // Optional: Add color logic based on BMI
+      const bmiElement = document.getElementById("user-bmi");
+      bmiElement.style.color = "";
+      if (currentUser.bmi < 18.5) {
+        bmiElement.style.color = "#ffd700"; // Underweight
+      } else if (currentUser.bmi < 25) {
+        bmiElement.style.color = "#28a745"; // Normal
+      } else {
+        bmiElement.style.color = "#dc3545"; // Overweight
+      }
+
+      // Greeting
+      const helloUser = document.getElementById("helloUser");
+      if (helloUser) {
+        helloUser.textContent = `Hello, ${currentUser.username}!`;
+      }
+    })
+    .catch((error) => {
+      console.error("Error loading user profile:", error);
+    });
+}
+$(document).ready(function () {
+  userProfile();
+});
+
+function updateProfile() {
+  const currentUserID = parseInt(getCurrentUser());
+
+  if (!currentUserID || currentUserID === "0") {
+    console.error("No valid user ID found.");
+    return;
+  }
+
+  // Get updated values from input fields (update with your actual input IDs)
+  const updatedUser = {
+    username: document.getElementById("usernameUpdate").value,
+    age: parseInt(document.getElementById("ageUpdate").value),
+    height: parseInt(document.getElementById("heightUpdate").value),
+    weight: parseInt(document.getElementById("weightUpdate").value),
+  };
+
+  console.log("Sending updated user:", updatedUser);
+
+  // Send PUT request
+  fetch(`https://localhost:7084/api/user/UpdateUser/${currentUserID}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedUser),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to update user profile");
+      }
+      return response.json();
+    })
+    .then((updatedUserData) => {
+      saveCurrentUser(updatedUserData);
+      window.location.href = "/tracker.html";
+      alert("Profile updated successfully!");
+    })
+    .catch((error) => {
+      console.error("Error updating profile:", error);
+      alert("There was a problem updating your profile.");
+    });
+}
+document.getElementById("updateForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  updateProfile();
+});
 
 // Favorite Workouts Section
 function favWorkouts() {
@@ -109,7 +209,4 @@ function favRecipes() {
 $(document).ready(function () {
   favWorkouts();
   favRecipes();
-});
-$(document).ready(function () {
-  userProfile();
 });
