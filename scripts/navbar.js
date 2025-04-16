@@ -2,6 +2,10 @@ function loadNavbar() {
   fetch("navbar.html")
     .then((response) => response.text())
     .then((data) => {
+      if (!localStorage.getItem("currentUser")){
+        localStorage.setItem("currentUser", "0");
+      }
+      
       document.getElementById("navbar").innerHTML = data;
       initializeForms(); // Ensure event listeners are added AFTER navbar loads
     })

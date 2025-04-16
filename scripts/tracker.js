@@ -164,6 +164,42 @@ document.getElementById("updateForm").addEventListener("submit", function (e) {
   updateProfile();
 });
 
+function deleteUser() {
+  const userId = getCurrentUser();
+
+  if (!userId || userId === "0") {
+    alert("You are not logged in.");
+    return;
+  }
+
+  if (!confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+    return;
+  }
+
+  fetch(`https://localhost:7084/api/user/DeleteUser/${userId}`, {
+    method: "DELETE"
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to delete account");
+      }
+      return response.text();
+    })
+    .then(() => {
+      alert("Your account has been deleted.");
+      localStorage.setItem("currentUser", "0");
+      localStorage.removeItem("currentUserData");
+      window.location.href = "/logout.html"; // Or redirect to home
+    })
+    .catch((error) => {
+      console.error("Error deleting user:", error);
+      alert("Something went wrong while deleting your account.");
+    });
+}
+
+document.getElementById("deleteBtn").addEventListener("click", deleteUser);
+
+
 // Favorite Workouts Section
 function favWorkouts() {
   $workoutsList.html("");
