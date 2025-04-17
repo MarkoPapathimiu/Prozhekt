@@ -21,35 +21,6 @@ function saveCurrentUser(current) {
   localStorage.setItem("currentUserData", JSON.stringify(current));
 }
 
-// To calculate BMI for updated data
-// function calculateAndDisplayBmi(weight, height) {
-//   // Convert height from cm to meters
-//   height = height / 100;
-
-//   // Calculate BMI
-//   const bmi = weight / Math.pow(height, 2);
-//   const bmiRounded = bmi.toFixed(2);
-
-//   const bmiElement = document.getElementById("user-bmi");
-
-//   // Set BMI value
-//   bmiElement.textContent = bmiRounded;
-
-//   // Reset previous styles
-//   bmiElement.style.color = "";
-//   bmiElement.style.padding = "5px";
-//   bmiElement.style.borderRadius = "5px";
-
-//   // Set background color based on BMI range
-//   if (bmi < 18.5) {
-//     bmiElement.style.color = "#ffd700"; // Underweight
-//   } else if (bmi >= 18.5 && bmi < 25) {
-//     bmiElement.style.color = "#28a745"; // Normal weight
-//   } else {
-//     bmiElement.style.color = "#dc3545"; // Overweight
-//   }
-// }
-
 // To log out
 function logOut() {
   localStorage.setItem("currentUser", "0");
@@ -74,17 +45,14 @@ function userProfile() {
       return response.json();
     })
     .then((currentUser) => {
-      // Save user data to localStorage
       saveCurrentUser(currentUser);
 
-      // Update the DOM with server-provided BMI
       document.getElementById("user-name").textContent = currentUser.username;
       document.getElementById("user-age").textContent = currentUser.age;
       document.getElementById("user-height").textContent = currentUser.height;
       document.getElementById("user-weight").textContent = currentUser.weight;
       document.getElementById("user-bmi").textContent = currentUser.bmi;
 
-      // Optional: Add color logic based on BMI
       const bmiElement = document.getElementById("user-bmi");
       bmiElement.style.color = "";
       if (currentUser.bmi < 18.5) {
@@ -95,7 +63,6 @@ function userProfile() {
         bmiElement.style.color = "#dc3545"; // Overweight
       }
 
-      // Greeting
       const helloUser = document.getElementById("helloUser");
       if (helloUser) {
         helloUser.textContent = `Hello, ${currentUser.username}!`;
@@ -105,9 +72,6 @@ function userProfile() {
       console.error("Error loading user profile:", error);
     });
 }
-$(document).ready(function () {
-  userProfile();
-});
 
 function updateProfile() {
   const currentUserID = parseInt(getCurrentUser());
@@ -192,52 +156,124 @@ function deleteUser() {
       alert("Something went wrong while deleting your account.");
     });
 }
-
 document.getElementById("deleteBtn").addEventListener("click", deleteUser);
+
+// Get Favorite Workouts from database
+function fetchFavoriteWorkouts(userId) {
+  return fetch(
+    `https://localhost:7084/api/user/GetFavoriteWorkouts/${userId}`
+  ).then((res) => {
+    if (!res.ok) throw new Error("Failed to fetch favorite workouts");
+    return res.json();
+  });
+}
+
+// Get Favorite Recipes from database
+function fetchFavoriteRecipes(userId) {
+  return fetch(
+    `https://localhost:7084/api/user/GetFavoriteRecipes/${userId}`
+  ).then((res) => {
+    if (!res.ok) throw new Error("Failed to fetch favorite recipes");
+    return res.json();
+  });
+}
 
 // Favorite Workouts Section
 function favWorkouts() {
   $workoutsList.html("");
 
-  var list = ["uno", "due", "tre", "quatro", "cinco", "sexta"]; //temporary list for testing
+  const currentUserId = getCurrentUser();
+  if (!currentUserId || currentUserId === "0") {
+    console.error("No valid user logged in.");
+    return;
+  }
 
-  //printing out workouts list items
-  list.forEach((item) => {
-    const $workoutListItem = $("<li></li>");
-    $workoutListItem.addClass("list-group-item mb-2");
-    $workoutListItem.html(`
-            <div class="d-flex">
-                <div>
-                    <h5 class="mb-1">${item}</h5>
-                    <p class="mb-1"><strong>Desc:</strong> This is my fav workout</p>
-                </div>
+  fetchFavoriteWorkouts(currentUserId)
+    .then((workouts) => {
+      if (workouts.length === 0) {
+        $workoutsList.append(
+          "<li class='list-group-item'>No favorite workouts yet.</li>"
+        );
+        return;
+      }
+
+      workouts.forEach((item) => {
+        const $workoutListItem = $("<li></li>").addClass(
+          "list-group-item mb-2"
+        );
+        $workoutListItem.html(`
+          <div class="d-flex">
+            <div>
+              <h5 class="mb-1">${item.name}</h5>
+              <p class="mb-1">${
+                item.description || "No description provided."
+              }</p>
             </div>
+          </div>
         `);
-    $workoutsList.append($workoutListItem);
-  });
+        $workoutsList.append($workoutListItem);
+      });
+      // calculateProgress();
+    })
+    .catch((err) => {
+      console.error("Error loading favorite workouts:", err);
+      $workoutsList.append(
+        "<li class='list-group-item text-danger'>Failed to load favorites.</li>"
+      );
+    });
 }
+
 // Favorite Recipes Section
 function favRecipes() {
   $recipesList.html("");
 
-  var list = ["uno", "due", "tre", "quatro", "cinco", "sexta"]; //temporary list for testing
+  const currentUserId = getCurrentUser();
+  if (!currentUserId || currentUserId === "0") {
+    console.error("No valid user logged in.");
+    return;
+  }
 
-  //printing out recipes list items
-  list.forEach((item) => {
-    const $recipeListItem = $("<li></li>");
-    $recipeListItem.addClass("list-group-item mb-2");
-    $recipeListItem.html(`
-            <div class="d-flex">
-                <div>
-                    <h5 class="mb-1">${item}</h5>
-                    <p class="mb-1"><strong>Desc:</strong> This is my fav recipe</p>
-                </div>
+  fetchFavoriteRecipes(currentUserId)
+    .then((recipes) => {
+      if (recipes.length === 0) {
+        $recipesList.append(
+          "<li class='list-group-item'>No favorite recipes yet.</li>"
+        );
+        return;
+      }
+
+      recipes.forEach((item) => {
+        const $recipeListItem = $("<li></li>").addClass("list-group-item mb-2");
+        $recipeListItem.html(`
+          <div class="d-flex">
+            <div>
+              <h5 class="mb-1">${item.name}</h5>
+              <p class="mb-1">${
+                item.description || "No description provided."
+              }</p>
             </div>
+          </div>
         `);
-    $recipesList.append($recipeListItem);
-  });
+        $recipesList.append($recipeListItem);
+      });
+    })
+    .catch((err) => {
+      console.error("Error loading favorite recipes:", err);
+      $recipesList.append(
+        "<li class='list-group-item text-danger'>Failed to load favorites.</li>"
+      );
+    });
 }
+
+// function calculateProgress() {
+//   const workoutsList = document.getElementById("workoutsList");
+//   const count = workoutsList.getElementsByTagName("li").length;
+
+//   console.log("Length: ", count);
+// }
+
 $(document).ready(function () {
+  userProfile();
   favWorkouts();
   favRecipes();
 });

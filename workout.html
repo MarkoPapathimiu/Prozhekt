@@ -28,18 +28,30 @@
   </head>
   <body>
     <!-- NavBar section -->
-    <div id="navbar"></div>
+    <div class="pb-5" id="navbar"></div>
 
-    <!--Head of page-->
-    <div class="header">
-      <div class="text-box">
-        <h1>JOIN THE MOVEMENT</h1>
-        <h5>Get started today!</h5>
-      </div>
-    </div>
+    
+
     <!--Warm-up carusel-->
     <div class="container">
-      <div class="row align-items-center">
+      <div class="custom-row align-items-center mb-4 ">
+        <p class="title-p">Exercises</p>
+        <h2 class="title-h">Shto tekst ketu!</h2>
+
+<!-- Kto butonat duhet te levizin faqen poshte te pjesa e faqes qe korrespondon -->
+        <a href="#warmUpSection" class="btn">
+          Warm Up
+        </a>
+        <a href="#workoutSection" class="btn">
+          Workouts
+        </a>
+        <a href="#stretchingSection" class="btn">
+          Stretching
+        </button>
+    </div>
+    
+
+      <div class="row align-items-center" id="warmUpSection">
         <!-- Teksti në të majtë -->
         <div class="col-md-6">
           <h2><b>Warming Up</b></h2>
@@ -155,7 +167,7 @@
   </div>
 </div>
     <!-- Workout list-->
-    <div class="workouts">
+    <div class="workouts" id="workoutSection">
       <h1><i>Workout List</i></h1>
       <div class="row">
         <div class="col-lg-3 mb-4">
@@ -168,6 +180,8 @@
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="1"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -194,6 +208,8 @@
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="2"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -217,11 +233,13 @@
             </div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Single leg bridge</b></p>
+                <p><b>Single Leg Bridge</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="3"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -248,6 +266,8 @@
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="4"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -273,11 +293,13 @@
             </div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Flutter kicks</b></p>
+                <p><b>Flutter Kicks</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="5"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -299,11 +321,13 @@
             <div class="ser-img"><img src="/images/bird-leg.jpg" alt="" /></div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Bird leg</b></p>
+                <p><b>Bird Leg</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="6"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -325,11 +349,13 @@
             <div class="ser-img"><img src="/images/cat-cow.jpg" alt="" /></div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Cat-cow</b></p>
+                <p><b>Cat-Cow</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="7"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -351,11 +377,13 @@
             <div class="ser-img"><img src="/images/starjump.jpg" alt="" /></div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Star jump</b></p>
+                <p><b>Star Jumps</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="8"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -381,11 +409,13 @@
             </div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Jumping lunges</b></p>
+                <p><b>Jumping Lunges</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="9"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -409,11 +439,13 @@
             </div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Fire hydrant</b></p>
+                <p><b>Fire Hydrant</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="10"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -439,11 +471,13 @@
             </div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Russian twist</b></p>
+                <p><b>Russian Twists</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="11"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -465,11 +499,13 @@
             <div class="ser-img"><img src="/images/sit-up.jpg" alt="" /></div>
             <div class="ser-text">
               <div class="content-container">
-                <p><b>Sit up</b></p>
+                <p><b>Sit Up</b></p>
               </div>
               <div class="star-container">
                 <svg
                   id="starButton"
+                  data-id="12"
+                  data-type="workout"
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="30"
@@ -488,8 +524,8 @@
         </div>
       </div>
     </div>
-    <!--Streching carosel-->
-    <div class="container">
+    <!--Stretching carosel-->
+    <div class="container" id="stretchingSection">
       <div class="row align-items-center">
         <!-- Carousel në të majtë -->
         <div class="col-md-6">
@@ -598,12 +634,12 @@
         </div>
     
         <div class="col-md-6">
-          <h2><b>Streching</b></h2>
+          <h2><b>Stretching</b></h2>
           <p><i>Stretching is a key part of any fitness routine, as it improves flexibility, enhances muscle recovery, and helps prevent injuries.</i></p>
         </div>
       </div>
     </div>
-    <h3><i>"Take care of your body. It’s the only place you have to live."
+    <h3><i>"Take care of your body. Its the only place you have to live."
       — Jim Rohn</i></h3>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -611,7 +647,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="/scripts/navbar.js"></script>
-    <script src="/scripts/workout.js"></script>
+    <script src="/scripts/favorites.js"></script>
 
   </body>
 </html>

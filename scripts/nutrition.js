@@ -1,11 +1,3 @@
-const starButtons = document.querySelectorAll(".star");
-
-starButtons.forEach(function (starButton) {
-  starButton.addEventListener("click", function () {
-    starButton.classList.toggle("filled");
-  });
-});
-
 const readMoreBtns = document.querySelectorAll(".read-more-btn");
 
 readMoreBtns.forEach((button) => {
