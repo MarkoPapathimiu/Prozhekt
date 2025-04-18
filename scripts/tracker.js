@@ -21,139 +21,259 @@ function saveCurrentUser(current) {
   localStorage.setItem("currentUserData", JSON.stringify(current));
 }
 
-// To calculate BMI for updated data
-function calculateAndDisplayBmi(weight, height) {
-  // Convert height from cm to meters
-  height = height / 100;
-
-  // Calculate BMI
-  const bmi = weight / Math.pow(height, 2);
-  const bmiRounded = bmi.toFixed(2);
-
-  const bmiElement = document.getElementById("user-bmi");
-
-  // Set BMI value
-  bmiElement.textContent = bmiRounded;
-
-  // Reset previous styles
-  bmiElement.style.color = '';
-  bmiElement.style.padding = '5px';
-  bmiElement.style.borderRadius = '5px';
-
-  // Set background color based on BMI range
-  if (bmi < 18.5) {
-    bmiElement.style.color = 'yellow'; // Underweight
-  } else if (bmi >= 18.5 && bmi < 25) {
-    bmiElement.style.color = 'green'; // Normal weight
-  } else {
-    bmiElement.style.color = 'red'; // Overweight
-  }
+// To log out
+function logOut() {
+  localStorage.setItem("currentUser", "0");
+  console.log("You are now logged out.");
+  window.location.href = "logout.html";
 }
-
-
-
-// To delete user
-// function deleteUser(userID) {
-//   let projects = getProjects();
-//   projects = projects.filter((project) => project.id !== projectID);
-//   saveProject(projects);
-//   renderProjects();
-// }
+document.getElementById("logoutBtn").addEventListener("click", logOut);
 
 function userProfile() {
-  const users = getUsers();
   const currentUserID = getCurrentUser();
 
-  console.log(
-    "Current User ID:",
-    currentUserID,
-    "Type: ",
-    typeof currentUserID
-  ); // Debugging: Log the current user ID
-
-  if (!currentUserID) {
-    console.error("No current user ID found.");
-    return; // Stop function execution if no current user ID is found
+  if (!currentUserID || currentUserID === "0") {
+    console.error("No valid current user ID found.");
+    return;
   }
 
-  const currentUser = users.find((user) => user.userID === currentUserID);
+  fetch(`https://localhost:7084/api/user/GetUserById/${currentUserID}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+      return response.json();
+    })
+    .then((currentUser) => {
+      saveCurrentUser(currentUser);
 
-  if (currentUser) {
-    console.log("Found Current User:", currentUser); // Debugging: Log the found user
-  }
-  if (!currentUser) {
-    console.error("User not found.");
-    return; // Exit the function if no user matches the current ID
-  }
+      document.getElementById("user-name").textContent = currentUser.username;
+      document.getElementById("user-age").textContent = currentUser.age;
+      document.getElementById("user-height").textContent = currentUser.height;
+      document.getElementById("user-weight").textContent = currentUser.weight;
+      document.getElementById("user-bmi").textContent = currentUser.bmi;
 
-  // Now save the currentUser object to localStorage
-  localStorage.setItem("currentUserData", JSON.stringify(currentUser));
+      const bmiElement = document.getElementById("user-bmi");
+      bmiElement.style.color = "";
+      if (currentUser.bmi < 18.5) {
+        bmiElement.style.color = "#ffd700"; // Underweight
+      } else if (currentUser.bmi < 25) {
+        bmiElement.style.color = "#28a745"; // Normal
+      } else {
+        bmiElement.style.color = "#dc3545"; // Overweight
+      }
 
-  console.log("This is the current user:", currentUser);
-
-  // Update the DOM elements with user data
-  document.getElementById("user-name").textContent = currentUser.username;
-  document.getElementById("user-age").textContent = currentUser.age;
-  document.getElementById("user-height").textContent = currentUser.height;
-  document.getElementById("user-weight").textContent = currentUser.weight;
-  document.getElementById("user-bmi").textContent = currentUser.bmi;
-
-  calculateAndDisplayBmi(currentUser.weight, currentUser.height);
-
-
-  // Update the greeting message
-  const helloUser = document.getElementById("helloUser");
-  if (helloUser) {
-    helloUser.textContent = `Hello, ${currentUser.username}!`;
-  }
+      const helloUser = document.getElementById("helloUser");
+      if (helloUser) {
+        helloUser.textContent = `Hello, ${currentUser.username}!`;
+      }
+    })
+    .catch((error) => {
+      console.error("Error loading user profile:", error);
+    });
 }
-$(document).ready(function () {
-  userProfile();
+
+function updateProfile() {
+  const currentUserID = parseInt(getCurrentUser());
+
+  if (!currentUserID || currentUserID === "0") {
+    console.error("No valid user ID found.");
+    return;
+  }
+
+  // Get updated values from input fields (update with your actual input IDs)
+  const updatedUser = {
+    username: document.getElementById("usernameUpdate").value,
+    age: parseInt(document.getElementById("ageUpdate").value),
+    height: parseInt(document.getElementById("heightUpdate").value),
+    weight: parseInt(document.getElementById("weightUpdate").value),
+  };
+
+  console.log("Sending updated user:", updatedUser);
+
+  // Send PUT request
+  fetch(`https://localhost:7084/api/user/UpdateUser/${currentUserID}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedUser),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to update user profile");
+      }
+      return response.json();
+    })
+    .then((updatedUserData) => {
+      saveCurrentUser(updatedUserData);
+      window.location.href = "/tracker.html";
+      alert("Profile updated successfully!");
+    })
+    .catch((error) => {
+      console.error("Error updating profile:", error);
+      alert("There was a problem updating your profile.");
+    });
+}
+document.getElementById("updateForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  updateProfile();
 });
+
+function deleteUser() {
+  const userId = getCurrentUser();
+
+  if (!userId || userId === "0") {
+    alert("You are not logged in.");
+    return;
+  }
+
+  if (
+    !confirm(
+      "Are you sure you want to delete your account? This action cannot be undone."
+    )
+  ) {
+    return;
+  }
+
+  fetch(`https://localhost:7084/api/user/DeleteUser/${userId}`, {
+    method: "DELETE",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to delete account");
+      }
+      return response.text();
+    })
+    .then(() => {
+      alert("Your account has been deleted.");
+      localStorage.setItem("currentUser", "0");
+      localStorage.removeItem("currentUserData");
+      window.location.href = "/logout.html"; // Or redirect to home
+    })
+    .catch((error) => {
+      console.error("Error deleting user:", error);
+      alert("Something went wrong while deleting your account.");
+    });
+}
+document.getElementById("deleteBtn").addEventListener("click", deleteUser);
+
+// Get Favorite Workouts from database
+function fetchFavoriteWorkouts(userId) {
+  return fetch(
+    `https://localhost:7084/api/user/GetFavoriteWorkouts/${userId}`
+  ).then((res) => {
+    if (!res.ok) throw new Error("Failed to fetch favorite workouts");
+    return res.json();
+  });
+}
+
+// Get Favorite Recipes from database
+function fetchFavoriteRecipes(userId) {
+  return fetch(
+    `https://localhost:7084/api/user/GetFavoriteRecipes/${userId}`
+  ).then((res) => {
+    if (!res.ok) throw new Error("Failed to fetch favorite recipes");
+    return res.json();
+  });
+}
 
 // Favorite Workouts Section
 function favWorkouts() {
   $workoutsList.html("");
 
-  var list = ["uno", "due", "tre", "quatro", "cinco", "sexta"]; //temporary list for testing
+  const currentUserId = getCurrentUser();
+  if (!currentUserId || currentUserId === "0") {
+    console.error("No valid user logged in.");
+    return;
+  }
 
-  //printing out workouts list items
-  list.forEach((item) => {
-    const $workoutListItem = $("<li></li>");
-    $workoutListItem.addClass("list-group-item mb-2");
-    $workoutListItem.html(`
-            <div class="d-flex">
-                <div>
-                    <h5 class="mb-1">${item}</h5>
-                    <p class="mb-1"><strong>Desc:</strong> This is my fav workout</p>
-                </div>
+  fetchFavoriteWorkouts(currentUserId)
+    .then((workouts) => {
+      if (workouts.length === 0) {
+        $workoutsList.append(
+          "<li class='list-group-item'>No favorite workouts yet.</li>"
+        );
+        return;
+      }
+
+      workouts.forEach((item) => {
+        const $workoutListItem = $("<li></li>").addClass(
+          "list-group-item mb-2"
+        );
+        $workoutListItem.html(`
+          <div class="d-flex">
+            <div>
+              <h5 class="mb-1">${item.name}</h5>
+              <p class="mb-1">${
+                item.description || "No description provided."
+              }</p>
             </div>
+          </div>
         `);
-    $workoutsList.append($workoutListItem);
-  });
+        $workoutsList.append($workoutListItem);
+      });
+      // calculateProgress();
+    })
+    .catch((err) => {
+      console.error("Error loading favorite workouts:", err);
+      $workoutsList.append(
+        "<li class='list-group-item text-danger'>Failed to load favorites.</li>"
+      );
+    });
 }
+
 // Favorite Recipes Section
 function favRecipes() {
   $recipesList.html("");
 
-  var list = ["uno", "due", "tre", "quatro", "cinco", "sexta"]; //temporary list for testing
+  const currentUserId = getCurrentUser();
+  if (!currentUserId || currentUserId === "0") {
+    console.error("No valid user logged in.");
+    return;
+  }
 
-  //printing out recipes list items
-  list.forEach((item) => {
-    const $recipeListItem = $("<li></li>");
-    $recipeListItem.addClass("list-group-item mb-2");
-    $recipeListItem.html(`
-            <div class="d-flex">
-                <div>
-                    <h5 class="mb-1">${item}</h5>
-                    <p class="mb-1"><strong>Desc:</strong> This is my fav recipe</p>
-                </div>
+  fetchFavoriteRecipes(currentUserId)
+    .then((recipes) => {
+      if (recipes.length === 0) {
+        $recipesList.append(
+          "<li class='list-group-item'>No favorite recipes yet.</li>"
+        );
+        return;
+      }
+
+      recipes.forEach((item) => {
+        const $recipeListItem = $("<li></li>").addClass("list-group-item mb-2");
+        $recipeListItem.html(`
+          <div class="d-flex">
+            <div>
+              <h5 class="mb-1">${item.name}</h5>
+              <p class="mb-1">${
+                item.description || "No description provided."
+              }</p>
             </div>
+          </div>
         `);
-    $recipesList.append($recipeListItem);
-  });
+        $recipesList.append($recipeListItem);
+      });
+    })
+    .catch((err) => {
+      console.error("Error loading favorite recipes:", err);
+      $recipesList.append(
+        "<li class='list-group-item text-danger'>Failed to load favorites.</li>"
+      );
+    });
 }
+
+// function calculateProgress() {
+//   const workoutsList = document.getElementById("workoutsList");
+//   const count = workoutsList.getElementsByTagName("li").length;
+
+//   console.log("Length: ", count);
+// }
+
 $(document).ready(function () {
+  userProfile();
   favWorkouts();
   favRecipes();
 });
