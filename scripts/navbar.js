@@ -1,5 +1,5 @@
 function loadNavbar() {
-  fetch("navbar.html")
+  fetch("./navbar.html")
     .then((response) => response.text())
     .then((data) => {
       if (!localStorage.getItem("currentUser")) {
@@ -111,7 +111,7 @@ function initializeForms() {
           console.log("Login successful:", user);
           alert("You are now logged in!");
           localStorage.setItem("currentUser", user.id);
-          window.location.href = "/tracker.html";
+          window.location.href = "./tracker.html";
         })
         .catch((error) => {
           console.error("Login failed:", error);
@@ -137,9 +137,9 @@ function initializeForms() {
 
       const currentUser = getCurrentUser();
       if (currentUser && currentUser !== "0") {
-        window.location.href = "/tracker.html"; // User is logged in
+        window.location.href = "./tracker.html"; // User is logged in
       } else {
-        window.location.href = "/logout.html"; // User not logged in
+        window.location.href = "./logout.html"; // User not logged in
       }
     });
 }

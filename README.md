@@ -1,6 +1,6 @@
-# Fitness Tracker
+# Fitness Tracking
 
-**Fitness Tracker** is a responsive, front-end fitness tracking website that lets users create accounts, log in, track workouts, view nutrition plans, and monitor progress. Built using **HTML**, **CSS (Bootstrap)**, and **JavaScript**, with REST API integration for backend user and favourites management.
+**Fitness Tracking** is a responsive, front-end fitness tracking website that lets users create accounts, log in, track workouts, view nutrition plans, and monitor progress. Built using **HTML**, **CSS (Bootstrap)**, and **JavaScript**, with REST API integration for backend user and favourites management.
 
 ---
 
