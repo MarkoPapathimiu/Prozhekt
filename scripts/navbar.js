@@ -2,10 +2,10 @@ function loadNavbar() {
   fetch("navbar.html")
     .then((response) => response.text())
     .then((data) => {
-      if (!localStorage.getItem("currentUser")){
+      if (!localStorage.getItem("currentUser")) {
         localStorage.setItem("currentUser", "0");
       }
-      
+
       document.getElementById("navbar").innerHTML = data;
       initializeForms(); // Ensure event listeners are added AFTER navbar loads
     })
@@ -13,47 +13,32 @@ function loadNavbar() {
 }
 
 function initializeForms() {
+  // Get currentUser's Id from localstorage
+  function getCurrentUser() {
+    return localStorage.getItem("currentUser");
+  }
+
   const signUpForm = document.getElementById("signUpForm");
   const loginForm = document.getElementById("logInForm");
 
   // Collect inputs for sign up
-  const userName = document.getElementById("usernameInput");
-  const password = document.getElementById("passwordInput");
-  const userAge = document.getElementById("ageInput");
-  const userHeight = document.getElementById("heightInput");
-  const userWeight = document.getElementById("weightInput");
-
-  // Function to generate random ID
-  function generateId() {
-    return "_" + Math.random().toString(36).substr(2, 9);
-  }
-
-  // Function to get users from localStorage
-  function getUsers() {
-    return JSON.parse(localStorage.getItem("users")) || [];
-  }
-
-  //function to calculate BMI
-  function calculateBmi(weight, height) {
-    height = height / 100;
-    const bmi = weight / Math.pow(height, 2);
-    return bmi.toFixed(2);
-  }
-
-  // Function to save user to localStorage
-  function saveUser(users) {
-    localStorage.setItem("users", JSON.stringify(users));
-  }
+  const userNameInput = document.getElementById("usernameInput");
+  const passwordInput = document.getElementById("passwordInput");
+  const userAgeInput = document.getElementById("ageInput");
+  const userHeightInput = document.getElementById("heightInput");
+  const userWeightInput = document.getElementById("weightInput");
 
   // Sign Up - API call
   function createUser(event) {
+    const currentUserID = getCurrentUser();
+
     event.preventDefault();
 
-    const username = document.getElementById("usernameInput").value.trim();
-    const password = document.getElementById("passwordInput").value;
-    const age = parseInt(document.getElementById("ageInput").value);
-    const height = parseInt(document.getElementById("heightInput").value);
-    const weight = parseInt(document.getElementById("weightInput").value);
+    const username = userNameInput.value.trim();
+    const password = passwordInput.value;
+    const age = parseInt(userAgeInput.value);
+    const height = parseInt(userHeightInput.value);
+    const weight = parseInt(userWeightInput.value);
 
     if (!username || !password || !age || !height || !weight) {
       alert("Please fill in all fields.");
@@ -68,25 +53,30 @@ function initializeForms() {
       weight: weight,
     };
 
-    fetch("https://localhost:7084/api/user/CreateUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error("User creation failed");
-        return response.json();
+    if (currentUserID === "0") {
+      fetch("https://localhost:7084/api/user/CreateUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
       })
-      .then((data) => {
-        alert("User created successfully! You can now log in.");
-        signUpForm.reset();
-      })
-      .catch((error) => {
-        console.error("Error creating user:", error);
-        alert("Username may already exist. Please try again.");
-      });
+        .then((response) => {
+          if (!response.ok) throw new Error("User creation failed");
+          return response.json();
+        })
+        .then((data) => {
+          alert("User created successfully! You can now log in.");
+          signUpForm.reset();
+        })
+        .catch((error) => {
+          console.error("Error creating user:", error);
+          alert("Username may already exist. Please try again.");
+        });
+    } else {
+      alert("Log Out first!");
+      return;
+    }
   }
 
   // Login - API call
@@ -145,7 +135,7 @@ function initializeForms() {
     .addEventListener("click", function (e) {
       e.preventDefault();
 
-      const currentUser = localStorage.getItem("currentUser");
+      const currentUser = getCurrentUser();
       if (currentUser && currentUser !== "0") {
         window.location.href = "/tracker.html"; // User is logged in
       } else {

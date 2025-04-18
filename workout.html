@@ -4,7 +4,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workouts</title>
+    <title>Workouts | Fitness Tracking</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,7 +20,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="styles/workout.css" />
+    <link rel="stylesheet" href="/styles/workout.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
       rel="stylesheet"
@@ -33,16 +34,16 @@
     <!-- Main Elements -->
     <div class="container">
       <div class="custom-row align-items-center mb-4 ">
-        <p class="title-p">Exercises</p>
-        <h2 class="title-h">Shto tekst ketu!</h2>
+        <p class="title-p">Full body training</p>
+        <h2 class="title-h mb-3">Workout Plan</h2>
 
-        <a href="#warmUpSection" class="btn">
+        <a href="#warmUpSection" class="btn rounded-pill pageSectionBtn">
           Warm Up
         </a>
-        <a href="#workoutSection" class="btn">
+        <a href="#workoutSection" class="btn rounded-pill pageSectionBtn">
           Workouts
         </a>
-        <a href="#stretchingSection" class="btn">
+        <a href="#stretchingSection" class="btn rounded-pill pageSectionBtn">
           Stretching
         </a>
       </div>
@@ -57,109 +58,109 @@
     
         <!-- Carousel në të djathtë -->
         <div class="col-md-6">
-       <div id="carouselExampleDark" class="carousel carousel-dark slide">
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="3"
-            aria-label="Slide 4"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="4"
-            aria-label="Slide 5"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="5"
-            aria-label="Slide 6"
-          ></button>
+          <div id="carouselExampleDark" class="carousel carousel-dark slide">
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="3"
+                aria-label="Slide 4"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="4"
+                aria-label="Slide 5"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to="5"
+                aria-label="Slide 6"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="/images/Vertical-Mountain-Climber.gif" alt="..." />
+                <div class="carousel-caption">
+                  <h5>Vertical Mountain Climber</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="/images/Cossack-Squat.gif" alt="..." />
+                <div class="carousel-caption">
+                  <h5>Cossack Squat</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="/images/Dynamic-Chest.gif" alt="..." />
+                <div class="carousel-caption">
+                  <h5>Dynamic Chest</h5>
+                  
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="/images/Fast-Feet-Run.gif" alt="..." />
+                <div class="carousel-caption">
+                  <h5>Fast Feet Run</h5>
+                
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="/images/Arm-Circles_Shoulders.gif" alt="..." />
+                <div class="carousel-caption">
+                  <h5>Arm Circles</h5>
+                  
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/Body-weight-Windmill.gif" alt="..." />
+                <div class="carousel-caption">
+                  <h5>Body weight Windmill</h5>
+                  
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleDark"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleDark"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="/images/Vertical-Mountain-Climber.gif" alt="..." />
-            <div class="carousel-caption">
-              <h5>Vertical Mountain Climber</h5>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="/images/Cossack-Squat.gif" alt="..." />
-            <div class="carousel-caption">
-              <h5>Cossack Squat</h5>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="/images/Dynamic-Chest.gif" alt="..." />
-            <div class="carousel-caption">
-              <h5>Dynamic Chest</h5>
-              
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="/images/Fast-Feet-Run.gif" alt="..." />
-            <div class="carousel-caption">
-              <h5>Fast Feet Run</h5>
-             
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="/images/Arm-Circles_Shoulders.gif" alt="..." />
-            <div class="carousel-caption">
-              <h5>Arm Circles</h5>
-              
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="images/Body-weight-Windmill.gif" alt="..." />
-            <div class="carousel-caption">
-              <h5>Body weight Windmill</h5>
-              
-            </div>
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleDark"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleDark"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      </div>
      </div>
   </div>
 </div>

@@ -5,20 +5,14 @@ function getUsers() {
   return JSON.parse(localStorage.getItem("users")) || [];
 }
 
-function getWorkouts() {
-  return JSON.parse(localStorage.getItem("workouts")) || [];
-}
-
-function getRecipes() {
-  return JSON.parse(localStorage.getItem("recipes")) || [];
-}
-
-function getCurrentUser() {
-  return localStorage.getItem("currentUser");
-}
-
+// Save currentUser's Id in localstorage
 function saveCurrentUser(current) {
   localStorage.setItem("currentUserData", JSON.stringify(current));
+}
+
+// Get currentUser's Id from localstorage
+function getCurrentUser() {
+  return localStorage.getItem("currentUser");
 }
 
 // To log out
@@ -29,6 +23,7 @@ function logOut() {
 }
 document.getElementById("logoutBtn").addEventListener("click", logOut);
 
+// User profile data
 function userProfile() {
   const currentUserID = getCurrentUser();
 
@@ -149,7 +144,7 @@ function deleteUser() {
       alert("Your account has been deleted.");
       localStorage.setItem("currentUser", "0");
       localStorage.removeItem("currentUserData");
-      window.location.href = "/logout.html"; // Or redirect to home
+      window.location.href = "/logout.html";
     })
     .catch((error) => {
       console.error("Error deleting user:", error);
@@ -213,7 +208,6 @@ function favWorkouts() {
         `);
         $workoutsList.append($workoutListItem);
       });
-      // calculateProgress();
     })
     .catch((err) => {
       console.error("Error loading favorite workouts:", err);
@@ -264,13 +258,6 @@ function favRecipes() {
       );
     });
 }
-
-// function calculateProgress() {
-//   const workoutsList = document.getElementById("workoutsList");
-//   const count = workoutsList.getElementsByTagName("li").length;
-
-//   console.log("Length: ", count);
-// }
 
 $(document).ready(function () {
   userProfile();
