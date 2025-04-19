@@ -1,6 +1,12 @@
 const $workoutsList = $("#workoutsList");
 const $recipesList = $("#recipesList");
 
+const thisUsername = document.getElementById("user-name");
+const thisAge = document.getElementById("user-age");
+const thisHeight = document.getElementById("user-height");
+const thisWeight = document.getElementById("user-weight");
+const thisBmi = document.getElementById("user-bmi");
+
 function getUsers() {
   return JSON.parse(localStorage.getItem("users")) || [];
 }
@@ -42,11 +48,11 @@ function userProfile() {
     .then((currentUser) => {
       saveCurrentUser(currentUser);
 
-      document.getElementById("user-name").textContent = currentUser.username;
-      document.getElementById("user-age").textContent = currentUser.age;
-      document.getElementById("user-height").textContent = currentUser.height;
-      document.getElementById("user-weight").textContent = currentUser.weight;
-      document.getElementById("user-bmi").textContent = currentUser.bmi;
+      thisUsername.textContent = currentUser.username;
+      thisAge.textContent = currentUser.age;
+      thisHeight.textContent = currentUser.height;
+      thisWeight.textContent = currentUser.weight;
+      thisBmi.textContent = currentUser.bmi;
 
       const bmiElement = document.getElementById("user-bmi");
       bmiElement.style.color = "";
@@ -68,6 +74,40 @@ function userProfile() {
     });
 }
 
+// Function to load currentUser's data in the update modal
+function loadUserData(){
+  const currentUserID = parseInt(getCurrentUser());
+
+  const currentUsername = document.getElementById("usernameUpdate");
+  const currentAge = document.getElementById("ageUpdate");
+  const currentHeight = document.getElementById("heightUpdate");
+  const currentWeight = document.getElementById("weightUpdate");
+
+  fetch(`https://localhost:7084/api/user/GetUserById/${currentUserID}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+      return response.json();
+    })
+    .then((currentUser) => {
+      console.log("User: ", currentUser);
+
+      currentUsername.value = currentUser.username;
+      currentAge.value = currentUser.age;
+      currentHeight.value = currentUser.height;
+      currentWeight.value = currentUser.weight;
+    })
+    
+    .catch((error) => {
+      console.error("Error loading user profile:", error);
+    });
+}
+$('#modalUpdate').on('show.bs.modal', function () {
+  loadUserData();
+});
+
+// Function to PUT new user data
 function updateProfile() {
   const currentUserID = parseInt(getCurrentUser());
 
@@ -76,12 +116,17 @@ function updateProfile() {
     return;
   }
 
+  const newUsername = document.getElementById("usernameUpdate");
+  const newAge = document.getElementById("ageUpdate");
+  const newHeight = document.getElementById("heightUpdate");
+  const newWeight = document.getElementById("weightUpdate");
+
   // Get updated values from input fields (update with your actual input IDs)
   const updatedUser = {
-    username: document.getElementById("usernameUpdate").value,
-    age: parseInt(document.getElementById("ageUpdate").value),
-    height: parseInt(document.getElementById("heightUpdate").value),
-    weight: parseInt(document.getElementById("weightUpdate").value),
+    username: newUsername.value,
+    age: parseInt(newAge.value),
+    height: parseInt(newHeight.value),
+    weight: parseInt(newWeight.value),
   };
 
   console.log("Sending updated user:", updatedUser);
@@ -258,7 +303,6 @@ function favRecipes() {
       );
     });
 }
-
 $(document).ready(function () {
   userProfile();
   favWorkouts();
