@@ -36,13 +36,12 @@
 ```bash
 📦 Prozhekt
 │
-├── html/
-│   ├── homePage.html
-│   ├── workout.html
-│   ├── nutrition.html
-│   ├── tracker.html
-│   ├── logout.html
-│   └── navbar.html
+├── homePage.html
+├── workout.html
+├── nutrition.html
+├── tracker.html
+├── logout.html
+├── navbar.html
 │
 ├── css/
 │   ├── homePage.css
