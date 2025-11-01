@@ -82,6 +82,12 @@
 
 ---
 
+## Related Repositories
+
+- **Backend:** [ProzhektAPI](https://github.com/MarkoPapathimiu/ProzhektAPI)
+
+---
+
 ## Notes
 
 - LocalStorage is used for maintaining login sessions
